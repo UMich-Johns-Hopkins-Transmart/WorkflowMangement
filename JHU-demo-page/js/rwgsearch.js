@@ -833,7 +833,7 @@ jQuery(document).ready(function() {
     	var id = jQuery(this).attr('name');
 
 		jQuery('#createStudyOverlay').fadeIn();
-		jQuery('#createStudy').empty().addClass('ajaxloading');
+/*		jQuery('#createStudy').empty().addClass('ajaxloading');
 
 		jQuery.ajax({
 			url:createStudyURL,
@@ -845,7 +845,7 @@ jQuery(document).ready(function() {
 				alert(xhr);
 				jQuery('#createStudy').html(response).removeClass('ajaxloading');
 			}
-		});
+		});*/
 	});
 
 	jQuery('#welcome-viewer').on('click', '.addprogram', function() {
