@@ -1,625 +1,625 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-        <!-- Force Internet Explorer 8 to override compatibility mode -->
-        <meta content="IE=EmulateIE8" http-equiv="X-UA-Compatible" />
-        <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
-        <title>tranSMART vnull (GPL, PostgresSQL)</title>
-        
-        <!-- jQuery CSS for cupertino theme -->
-        <link href="css/jquery/ui/jquery-ui-1.9.1.custom.css" rel="stylesheet" />        
-        <link href="css/jquery/skin/ui.dynatree.css" rel="stylesheet" />        
-        
-        <!-- Our CSS -->
-        <link href="css/jquery.loadmask.css" rel="stylesheet" />
-        <link href="bundle-bundle_main_mod_head.css" rel="stylesheet" />        
-        <link href="css/rwg.css" rel="stylesheet" />
-        <link href="css/colorbox.css" rel="stylesheet" />
-        <link href="css/jquery/simpleModal.css" rel="stylesheet" />
-        <link href="css/jquery/multiselect/ui.multiselect.css" rel="stylesheet" />
-        <link href="css/jquery/multiselect/common.css" rel="stylesheet" />
-        <link href="css/jquery/jqueryDatatable.css" rel="stylesheet" />
-
-        <!-- jQuery JS libraries -->
-        <script src="js/jQuery/jquery.min.js" type="text/javascript"></script>   
-        
-        <script src="js/jQuery/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
-        
-        <script src="js/jQuery/jquery.cookie.js" type="text/javascript"></script>   
-        <script src="js/jQuery/jquery.dynatree.min.js" type="text/javascript"></script>
-        <script src="js/jQuery/jquery.paging.min.js" type="text/javascript"></script>
-		<script src="js/jQuery/jquery.loadmask.min.js" type="text/javascript"></script>   
- 		<script src="js/jQuery/jquery.ajaxmanager.js" type="text/javascript"></script>  
-  		<script src="js/jQuery/jquery.numeric.js" type="text/javascript"></script>
-  		<script src="js/jQuery/jquery.colorbox-min.js" type="text/javascript"></script>  
-  		<script src="js/jQuery/jquery.simplemodal.min.js" type="text/javascript"></script>  
-  		<script src="js/jQuery/jquery.dataTables.js" type="text/javascript"></script>
-  		<script src="js/facetedSearch/facetedSearchBrowse.js" type="text/javascript"></script>
-  		<script src="js/jQuery/ui.multiselect.js" type="text/javascript"></script>  
-  		  
-  		        
-  		<!--Datatable styling and scripts-->
-        <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="js/ColVis.min.js" type="text/javascript"></script> 
-        <script src="js/ColReorderWithResize.js" type="text/javascript"></script>
-  		
-  		<!--  SVG Export -->
-  		
-	        
-        <script type="text/javascript">
-            var $j = jQuery.noConflict();
-        </script>
-        <script src="bundle-prototype_defer.js" type="text/javascript"></script>
-
-        
-        <!-- Our JS -->        
-        <script src="js/rwg.js" type="text/javascript"></script>
-        <script src="js/rwgsearch.js" type="text/javascript"></script>
-        <script src="js/maintabpanel.js" type="text/javascript"></script>
-        
-        <!-- Protovis Visualization library and IE plugin (for lack of SVG support in IE8 -->
-        
-       
-		
-<script charset="utf-8" type="text/javascript">
-var searchResultsURL = "/transmart/RWG/loadSearchResults";
-var facetResultsURL = "/transmart/RWG/getFacetResults";
-var clearSearchFilterURL = "/transmart/RWG/clearSearchFilter";
-var newSearchURL = "/transmart/RWG/newSearch";
-var visualizationURL = "/transmart/RWG/newVisualization";
-var tableURL = "/transmart/RWG/newTable";
-var treeURL = "/transmart/RWG/getDynatree";
-var sourceURL = "/transmart/RWG/searchAutoComplete";	      
-var getCategoriesURL = "/transmart/RWG/getSearchCategories";
-var getFilterCategoriesURL = "/transmart/RWG/getFilterCategories";
-var getHeatmapNumberProbesURL = "/transmart/RWG/getHeatmapNumberProbes";
-var getHeatmapDataURL = "/transmart/RWG/getHeatmapData";
-var getHeatmapDataForExportURL = "/transmart/RWG/getHeatmapDataForExport2";
-var getBoxPlotDataURL = "/transmart/RWG/getBoxPlotData";
-var getLinePlotDataURL = "/transmart/RWG/getLinePlotData";	        
-var saveSearchURL = "/transmart/RWG/saveFacetedSearch";
-var loadSearchURL = "/transmart/RWG/loadFacetedSearch";
-var deleteSearchURL = "/transmart/RWG/deleteFacetedSearch";
-var exportAsImage = "/transmart/RWG/exportAsImage";
-
-var getStudyAnalysesUrl = "/transmart/RWG/getTrialAnalysis";
-var fileDataUrl = "/transmart/RWG/getFileDetails";
-
-//These are the URLS for the different browse windows.
-var studyBrowseWindow = "/transmart/experiment/browseExperimentsMultiSelect";
-var analysisBrowseWindow = "/transmart/experimentAnalysis/browseAnalysisMultiSelect";
-var regionBrowseWindow = "/transmart/RWG/getRegionFilter";
-var dataTypeBrowseWindow = "/transmart/RWG/browseDataTypesMultiSelect";
-var getTableDataURL = "/transmart/search/getTableResults";
-var getAnalysisDataURL = "/transmart/search/getAnalysisResults";
-var getQQPlotURL = "/transmart/search/getQQPlotImage";
-
-var webStartURL = "/transmart/search/webStartPlotter";
-var datasetExplorerURL = "/transmart/datasetExplorer/index";
-
-var crossImageURL = "images/small_cross.png";
-
-var exportAddURL = "/transmart/fileExport/add";
-var exportRemoveURL = "/transmart/fileExport/remove";
-var exportViewURL = "/transmart/fileExport/view";
-var exportURL = "/transmart/fileExport/export";
-
-var folderContentsURL = "/transmart/fmFolder/getFolderContents";
-var folderDetailsURL = "/transmart/fmFolder/folderDetail";
-var analysisDataURL = "/transmart/fmFolder/analysisTable";
-var editMetaDataURL = "/transmart/fmFolder/editMetaData";
-var createAnalysisURL = "/transmart/fmFolder/createAnalysis";
-var createAssayURL = "/transmart/fmFolder/createAssay";
-var createFolderURL = "/transmart/fmFolder/createFolder";
-var createStudyURL = "/transmart/fmFolder/createStudy";
-var createProgramURL = "/transmart/fmFolder/createProgram";
-var saveMetaDataURL = "/transmart/fmFolder/updateMetaData";
-var saveAssayURL = "/transmart/fmFolder/saveAssay";
-var saveAnalysisURL = "/transmart/fmFolder/saveAnalysis";
-var saveStudyURL = "/transmart/fmFolder/saveStudy";
-var saveFolderURL = "/transmart/fmFolder/saveFolder";
-var saveProgramURL = "/transmart/fmFolder/saveProgram";
-
-var welcomeURL = "/transmart/RWG/ajaxWelcome";
-var searchLogURL = "/transmart/RWG/searchLog";
-
-var deleteFileURL = "/transmart/fmFolder/deleteFile";
-var deleteFolderURL = "/transmart/fmFolder/deleteFolder";
-
-var updateSearchCategoryURL = "/transmart/RWG/updateSearchCategory";
-
-var platformTypesUrl = '/transmart/bioAssayPlatform/platformsForVendor';
-
-var ajaxPlatformsURL = '/transmart/fmFolder/ajaxPlatforms';
-
-var addNodeRwgURL = "/transmart/RWG/addOpenedNodeRWG";
-var removeNodeRwgURL = "/transmart/RWG/removeOpenedNodeRWG";
-var resetNodesRwgURL = "/transmart/RWG/resetOpenedNodes";
-
-var addNodeDseURL = "/transmart/RWG/addOpenedNodeDSE";
-var removeNodeDseURL = "/transmart/RWG/removeOpenedNodeDSE";
-
-</script>
-		<script charset="utf-8" type="text/javascript">
-	        var mouse_inside_options_div = false;
-	        var sessionSearch = "";
-	        var sessionOperators = "";
-	        var sessionSearchCategory = "";
-	        var searchPage = "RWG";
-        
-	        jQuery(document).ready(function() {
-
-		        addToggleButton();
-
-		        jQuery("#xtButton").colorbox({opacity:.75, inline:true, width:"95%", height:"95%"});
-	        
-		        jQuery("#searchResultOptions_btn").click(function(){
-		        	jQuery("#searchResultOptions").toggle();
-		        });
-	        			
-		        //used to hide the options div when the mouse is clicked outside of it
-			
-	            jQuery('#searchResultOptions_holder').hover(function(){ 
-	            	mouse_inside_options_div=true; 
-	            }, function(){ 
-	            	mouse_inside_options_div=false; 
-	            });
-
-	            jQuery("body").mouseup(function(){ 
-		            //top menu options
-	                if(! mouse_inside_options_div ){
-		                jQuery('#searchResultOptions').hide();
-	        	}
-
-	                var analysisID = jQuery('body').data('heatmapControlsID');
-
-	                if(analysisID &gt; 1){
-	            		jQuery('#heatmapControls_' +analysisID).hide();
-		        		}
-
-	            });
-	            
-	            jQuery("#editMetadataOverlay").on('click', '#cancelmetadatabutton', function(){ 
-	            	if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
-	            	jQuery('#editMetadataOverlay').fadeOut();
-	            });
-	            
-	            jQuery("#editMetadataOverlay").on('click', '#savemetadatabutton', function() {
-		            if (jQuery(this).hasClass('buttonloading')) {return false; }
-		            
-	            	var protoForm = $('editMetadataForm');
-		            var serializedForm = jQuery(protoForm).serialize();
-		            jQuery('#savemetadatabutton').addClass('buttonloading').html("&amp;nbsp;");
-
-                    jQuery.ajax({
-                        url: saveMetaDataURL + "?" + serializedForm,
-                        success: function (response) {
-                            if (response.errors != undefined) {
-                                jQuery('#editMetadataOverlay').scrollTop(0);
-                                jQuery('#displayMetadataErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
-                                jQuery('#savemetadatabutton').removeClass('buttonloading').text('Save');
-		        	}else{
-                                jQuery('#result-folder-name-' + response.id).text(response.folderName);
-                                jQuery('#editMetadataOverlay').fadeOut();
-                                showDetailDialog(response.id);
-			        }
-                        },
-                        error: function (xhr) {
-                            jQuery('#savemetadatabutton').removeClass('buttonloading').text('Save');
-                            alert(xhr);
-                        },
-                        type: 'POST'
-                    });
-	            });
-
-	            jQuery("#createAssayOverlay").on('click', '#cancelassaybutton', function(){ 
-	            	if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
-	            	jQuery('#createAssayOverlay').fadeOut();
-	            });
-		        
-	            jQuery("#createAssayOverlay").on('click', '#saveassaybutton', function() {
-	            	var protoForm = $('createAssayForm');
-		            var serializedForm = jQuery(protoForm).serialize();
-		            jQuery('#saveassaybutton').addClass('buttonloading').html("&amp;nbsp;");
-                    jQuery.ajax({
-                        url: saveAssayURL + "?" + serializedForm,
-                        success: function (response) {
-                            if (response.errors != undefined) {
-                                jQuery('#createAssayOverlay').scrollTop(0);
-                                jQuery('#displayAssayErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
-                                jQuery('#saveassaybutton').removeClass('buttonloading').text('Save');
-                            } else {
-                                //updateFolder(response.parentId);
-                                jQuery('#createAssayOverlay').fadeOut();
-                                //showDetailDialog(response.id);
-                                updateForNewFolder(response.id);
-	        	}
-                        },
-                        error: function (xhr) {
-                            alert(xhr);
-                            jQuery('#saveassaybutton').removeClass('buttonloading').text('Save');
-                        },
-                        type: 'POST'
-                    });
-	            });
-
-		        
-	            jQuery("#createFolderOverlay").on('click', '#cancelfolderbutton', function(){ 
-	            	if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
-	            	jQuery('#createFolderOverlay').fadeOut();
-	            });
-
-	            jQuery("#createFolderOverlay").on('click', '#savefolderbutton', function() {
-	            	var protoForm = $('createFolderForm');
-		            var serializedForm = jQuery(protoForm).serialize();
-		            jQuery('#savefolderbutton').addClass('buttonloading').html("&amp;nbsp;");
-                    jQuery.ajax({
-                        url: saveFolderURL + "?" + serializedForm,
-                        success: function (response) {
-                            if (response.errors != undefined) {
-                                jQuery('#createFolderOverlay').scrollTop(0);
-                                jQuery('#displayFolderErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
-                                jQuery('#savefolderbutton').removeClass('buttonloading').text('Save');
-                            } else {
-                                //updateFolder(response.parentId);
-                                jQuery('#createFolderOverlay').fadeOut();
-                                //showDetailDialog(response.id);
-                                updateForNewFolder(response.id);
-                            }
-                        },
-                        error: function (xhr) {
-                            alert(xhr);
-                            jQuery('#savefolderbutton').removeClass('buttonloading').text('Save');
-                        },
-                        type: 'POST'
-                    });
-	            });
-
-
-	            jQuery("#createStudyOverlay").on('click', '#cancelstudybutton', function(){ 
-	            	if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
-	            	jQuery('#createStudyOverlay').fadeOut();
-	            });
-
-	            jQuery("#createStudyOverlay").on('click', '#savestudybutton', function() {
-	            	var protoForm = $('createStudyForm');
-		            var serializedForm = jQuery(protoForm).serialize();
-		            jQuery('#savestudybutton').addClass('buttonloading').html("&amp;nbsp;");
-                    jQuery.ajax({
-                        url: saveStudyURL + "?" + serializedForm,
-                        success: function (response) {
-                            if (response.errors != undefined) {
-                                jQuery('#createStudyOverlay').scrollTop(0);
-                                jQuery('#displayStudyErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
-                                jQuery('#savestudybutton').removeClass('buttonloading').text('Save');
-                            } else {
-                                //updateFolder(response.parentId);
-                                jQuery('#createStudyOverlay').fadeOut();
-                                //showDetailDialog(response.id);
-                                updateForNewFolder(response.id);
-                            }
-                        },
-                        error: function (xhr) {
-                            alert(xhr);
-                            jQuery('#savestudybutton').removeClass('buttonloading').text('Save');
-                        },
-                        type: 'POST'
-                    });
-	            });
-
-	            jQuery("#createProgramOverlay").on('click', '#cancelprogrambutton', function(){ 
-	            	if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
-	            	jQuery('#createProgramOverlay').fadeOut();
-	            });
-
-	            jQuery("#createProgramOverlay").on('click', '#saveprogrambutton', function() {
-
-	            	var protoForm = $('createProgramForm');
-		            var serializedForm = jQuery(protoForm).serialize();
-		            jQuery('#saveprogrambutton').addClass('buttonloading').html("&amp;nbsp;");
-                    jQuery.ajax({
-                        url: saveProgramURL + "?" + serializedForm,
-                        success: function (response) {
-                            if (response.errors != undefined) {
-                                jQuery('#createProgramOverlay').scrollTop(0);
-                                jQuery('#displayProgramErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
-                                jQuery('#saveprogrambutton').removeClass('buttonloading').text('Save');
-                            } else {
-                                showSearchResults();
-                                jQuery('#createProgramOverlay').fadeOut();
-                                showDetailDialog(response.id);
-                            }
-                        },
-                        error: function (xhr) {
-                            alert(xhr);
-                            jQuery('#saveprogrambutton').removeClass('buttonloading').text('Save');
-                        },
-                        type: 'POST'
-                    });
-	            });
-
-	            jQuery("#createAnalysisOverlay").on('click', '#cancelanalysisbutton', function(){ 
-	            	if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
-	            	jQuery('#createAnalysisOverlay').fadeOut();
-	            });
-
-	            jQuery("#createAnalysisOverlay").on('click', '#saveanalysisbutton', function() {
-		            
-	            	var protoForm = $('createAnalysisForm');
-		            var serializedForm = jQuery(protoForm).serialize();
-		            jQuery('#saveanalysisbutton').addClass('buttonloading').html("&amp;nbsp;");
-                    jQuery.ajax({
-                        url: saveAnalysisURL + "?" + serializedForm,
-                        success: function (response) {
-                            if (response.errors != undefined) {
-                                jQuery('#createAnalysis').scrollTop(0);
-                                jQuery('#displayAnalysisErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
-                                jQuery('#saveanalysisbutton').removeClass('buttonloading').text('Save');
-                            } else {
-                                //updateFolder(response.parentId);
-                                jQuery('#createAnalysisOverlay').fadeOut();
-                                //showDetailDialog(response.id);
-                                updateForNewFolder(response.id);
-	                }
-                        },
-                        error: function (xhr) {
-                            alert(xhr);
-                            jQuery('#saveanalysisbutton').removeClass('buttonloading').text('Save');
-
-                        },
-                        type: 'POST'
-                    });
-	            });
-
-	        	resizeAccordion();
-
-	        	jQuery('#sidebar').resizable({
-                    handles: 'e',
-                    maxWidth: 800,
-                    minWidth: 150,
-                    resize: function(event, ui){
-                        var currentWidth = ui.size.width;
-                        
-                        // this accounts for padding in the panels + 
-                        // borders, you could calculate this using jQuery
-                        var padding = 12; 
-                        
-                        // this accounts for some lag in the ui.size value, if you take this away 
-                        // you'll get some unstable behaviour
-                        jQuery(this).width(currentWidth);
-                        
-                        jQuery('#box-search').width(currentWidth - 20)
-                        jQuery('#program-explorer').width(currentWidth - 20)
-                        // jQuery('#results-div').width(currentWidth -20)
-                        // set the content panel width
-                        jQuery('#main').width(jQuery('body').width() - currentWidth - padding);
-                        jQuery('#filter-browser').css('left', jQuery('#box-search').width() + 50);
-	                }
-              });
-
-	        	var xpos = jQuery('#menuLinks').offset()['right'];
-
-	            });	
-
-	        jQuery(window).resize(function() {
-				resizeAccordion();
-			});
-
-			function resizeAccordion() {
-				
-				var windowHeight = jQuery(window).height();
-	        	jQuery('#sidebar').height(jQuery(window).height()-30);
-	        	jQuery('#main').height(jQuery(window).height()-30);
-				var ypos = jQuery('#program-explorer').offset()['top'];
-	        	
-	        	var targetHeight = windowHeight - ypos - 60;
-	        	jQuery('#results-div').height(targetHeight);
-	        	jQuery('#welcome').height(windowHeight - 90);
-	        	
-	        	if (jQuery('#sidebar:visible').size() &gt; 0) {
-	        		jQuery('#main').width(jQuery('body').width() - jQuery('#sidebar').width() - 12);
-	        	}
-	        	else {
-	        		jQuery('#main').width("100%");
-	        	}
-	        	
-	        	
-	        	jQuery('#box-search').width(jQuery('#program-explorer').width());
-			}
-
-			function updateExportCount() {
-				var checkboxes = jQuery('#exporttable input:checked');
-				
-				if (checkboxes.size() == 0) {
-					jQuery('#exportbutton').text('No files to export').addClass('disabled');
-				}
-				else {
-					jQuery('#exportbutton').removeClass('disabled').text('Export selected files (' + checkboxes.size() + ')');
-				}
-			}
-
-    function dataTableWrapper (containerId, tableId, title, sort, pageSize)
-            {
-
-                var data;
-                var gridPanelHeaderTips;
-                
-                function setupWrapper()
-                {
-                    var gridContainer =  $j('#' + containerId);
-                    gridContainer.html('&lt;table id=\'' + tableId + '\'&gt;&lt;/table&gt;&lt;/div&gt;');
-		             }
-
-                function overrideSort() {
-
-                    $j.fn.dataTableExt.oSort['numeric-pre']  = function(a) {
-                        
-                        var floatA = parseFloat(a);
-                        var returnValue;
-                        
-                        if (isNaN(floatA))
-                            returnValue = Number.MAX_VALUE * -1;    //Emptys will go to top for -1, bottom for +1   
-                            else
-                                returnValue = floatA;
-                        
-                            return returnValue;
-                        };
-
-                };
-
-                this.loadData = function(dataIn) {
-
-
-                    setupWrapper();
-                    
-                    data = dataIn;
-                    setupGridData(data, sort, pageSize);
-                    
-                    gridPanelHeaderTips = data.headerToolTips.slice(0);
-
-                    //Add the callback for when the grid is redrawn
-                    data.fnDrawCallback = function( oSettings ) {
-
-                        //Removed the tooltips
-                        /*
-                        $j(".dataTables_scrollHeadInner &gt; table &gt; thead &gt; tr &gt; th").each( function (index) {
-                            
-                            var titleAttr = $j(this).attr("title");
-                            
-                            if (titleAttr == null &amp;&amp; gridPanelHeaderTips != null)
-                            {
-                                $j(this).attr("title", gridPanelHeaderTips[index]);            
-                            }
-                            
-	            });	
-                        */
-
-                        //Hide the pagination if both directions are disabled.
-                        if (jQuery('#' + tableId + '_paginate .paginate_disabled_previous').size() &gt; 0 &amp;&amp; jQuery('#' + tableId + '_paginate .paginate_disabled_next').size() &gt; 0) {
-                        	jQuery('#' + tableId + '_paginate').hide();
-                        }
-                    };
-
-                    data.fnInitComplete = function() {this.fnAdjustColumnSizing();};
-
-                    $j('#' + tableId).dataTable(data);
-
-                    $j(window).bind('resize', function () {
-                        $j('#' + tableId).dataTable().fnAdjustColumnSizing()
-	        });	
-
-                     $j("#" + containerId + " div.gridTitle").html(data.iTitle);                  
-
-                };
-                
-
-                function setupGridData(data, sort, pageSize)
-                {
-                    data.bAutoWidth = true;
-                    data.bScrollAutoCss = true;
-//                    data.sScrollY = 400;
-                    data.sScrollX = "100%";
-                    data.bDestroy = true;
-                    data.bProcessing = true;
-                    data.bLengthChange = false;
-                    data.bScrollCollapse = false;
-                    data.iDisplayLength = 10;
-                    if (pageSize != null &amp;&amp; pageSize &gt; 0) {
-                    	data.iDisplayLength = pageSize;
-                    }
-                    if (sort != null) {
-	         			data.aaSorting = sort;
-	         		}
-                    data.sDom = '&lt;"top"&lt;"gridTitle"&gt;Rrt&gt;&lt;"bottom"p&gt;' //WHO DESIGNED THIS
-                }
-            }
-
-            
-//		var panel = createOntPanel()
-//		jQuery('#metadata-viewer').empty()
- //           jQuery('#metadata-viewer').add(panel);
-        </script>
-            
-        <script type="text/javascript">		
-			jQuery(function ($) {
-				// Load dialog on click of Save link
-				$('#save-modal .basic').click(openSaveSearchDialog);
-			});
-		</script>
-
-
-        
-    </head>
-    <body><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="padding-bottom: 57px; padding-right: 28px; display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><div id="cboxNext" style="float: left;"></div><div id="cboxPrevious" style="float: left;"></div><div id="cboxSlideshow" style="float: left;"></div><div id="cboxClose" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Force Internet Explorer 8 to override compatibility mode -->
+    <meta content="IE=EmulateIE8" http-equiv="X-UA-Compatible" />
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+    <title>tranSMART vnull (GPL, PostgresSQL)</title>
     
-        <div class="header-div" id="header-div">        
-            
+    <!-- jQuery CSS for cupertino theme -->
+    <link href="css/jquery/ui/jquery-ui-1.9.1.custom.css" rel="stylesheet" />        
+    <link href="css/jquery/skin/ui.dynatree.css" rel="stylesheet" />        
+    
+    <!-- Our CSS -->
+    <link href="css/jquery.loadmask.css" rel="stylesheet" />
+    <link href="bundle-bundle_main_mod_head.css" rel="stylesheet" />        
+    <link href="css/rwg.css" rel="stylesheet" />
+    <link href="css/colorbox.css" rel="stylesheet" />
+    <link href="css/jquery/simpleModal.css" rel="stylesheet" />
+    <link href="css/jquery/multiselect/ui.multiselect.css" rel="stylesheet" />
+    <link href="css/jquery/multiselect/common.css" rel="stylesheet" />
+    <link href="css/jquery/jqueryDatatable.css" rel="stylesheet" />
+    
+    <!-- jQuery JS libraries -->
+    <script src="js/jQuery/jquery.min.js" type="text/javascript"></script>   
+    <script src="js/jQuery/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.cookie.js" type="text/javascript"></script>   
+    <script src="js/jQuery/jquery.dynatree.min.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.paging.min.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.loadmask.min.js" type="text/javascript"></script>   
+    <script src="js/jQuery/jquery.ajaxmanager.js" type="text/javascript"></script>  
+    <script src="js/jQuery/jquery.numeric.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.colorbox-min.js" type="text/javascript"></script>  
+    <script src="js/jQuery/jquery.simplemodal.min.js" type="text/javascript"></script>  
+    <script src="js/jQuery/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="js/facetedSearch/facetedSearchBrowse.js" type="text/javascript"></script>
+    <script src="js/jQuery/ui.multiselect.js" type="text/javascript"></script>  
+    <!--Datatable styling and scripts-->
+    <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="js/ColVis.min.js" type="text/javascript"></script> 
+    <script src="js/ColReorderWithResize.js" type="text/javascript"></script>
+    <!--  SVG Export -->
+    <script type="text/javascript">
+		var $j = jQuery.noConflict();
+    </script>
+    <script src="bundle-prototype_defer.js" type="text/javascript"></script>
+    <!-- Our JS -->        
+    <script src="js/rwg.js" type="text/javascript"></script>
+    <script src="js/rwgsearch.js" type="text/javascript"></script>
+    <script src="js/maintabpanel.js" type="text/javascript"></script>
 
-<div id="logocutout">
+    <!-- Protovis Visualization library and IE plugin (for lack of SVG support in IE8 -->
+	<script charset="utf-8" type="text/javascript">
+		var searchResultsURL = "/transmart/RWG/loadSearchResults";
+		var facetResultsURL = "/transmart/RWG/getFacetResults";
+		var clearSearchFilterURL = "/transmart/RWG/clearSearchFilter";
+		var newSearchURL = "/transmart/RWG/newSearch";
+		var visualizationURL = "/transmart/RWG/newVisualization";
+		var tableURL = "/transmart/RWG/newTable";
+		var treeURL = "/transmart/RWG/getDynatree";
+		var sourceURL = "/transmart/RWG/searchAutoComplete";	      
+		var getCategoriesURL = "/transmart/RWG/getSearchCategories";
+		var getFilterCategoriesURL = "/transmart/RWG/getFilterCategories";
+		var getHeatmapNumberProbesURL = "/transmart/RWG/getHeatmapNumberProbes";
+		var getHeatmapDataURL = "/transmart/RWG/getHeatmapData";
+		var getHeatmapDataForExportURL = "/transmart/RWG/getHeatmapDataForExport2";
+		var getBoxPlotDataURL = "/transmart/RWG/getBoxPlotData";
+		var getLinePlotDataURL = "/transmart/RWG/getLinePlotData";	        
+		var saveSearchURL = "/transmart/RWG/saveFacetedSearch";
+		var loadSearchURL = "/transmart/RWG/loadFacetedSearch";
+		var deleteSearchURL = "/transmart/RWG/deleteFacetedSearch";
+		var exportAsImage = "/transmart/RWG/exportAsImage";
+		
+		var getStudyAnalysesUrl = "/transmart/RWG/getTrialAnalysis";
+		var fileDataUrl = "/transmart/RWG/getFileDetails";
+		
+		//These are the URLS for the different browse windows.
+		var studyBrowseWindow = "/transmart/experiment/browseExperimentsMultiSelect";
+		var analysisBrowseWindow = "/transmart/experimentAnalysis/browseAnalysisMultiSelect";
+		var regionBrowseWindow = "/transmart/RWG/getRegionFilter";
+		var dataTypeBrowseWindow = "/transmart/RWG/browseDataTypesMultiSelect";
+		var getTableDataURL = "/transmart/search/getTableResults";
+		var getAnalysisDataURL = "/transmart/search/getAnalysisResults";
+		var getQQPlotURL = "/transmart/search/getQQPlotImage";
+		
+		var webStartURL = "/transmart/search/webStartPlotter";
+		var datasetExplorerURL = "/transmart/datasetExplorer/index";
+		
+		var crossImageURL = "images/small_cross.png";
+		
+		var exportAddURL = "/transmart/fileExport/add";
+		var exportRemoveURL = "/transmart/fileExport/remove";
+		var exportViewURL = "/transmart/fileExport/view";
+		var exportURL = "/transmart/fileExport/export";
+		
+		var folderContentsURL = "/transmart/fmFolder/getFolderContents";
+		var folderDetailsURL = "/transmart/fmFolder/folderDetail";
+		var analysisDataURL = "/transmart/fmFolder/analysisTable";
+		var editMetaDataURL = "/transmart/fmFolder/editMetaData";
+		var createAnalysisURL = "/transmart/fmFolder/createAnalysis";
+		var createAssayURL = "/transmart/fmFolder/createAssay";
+		var createFolderURL = "/transmart/fmFolder/createFolder";
+		var createStudyURL = "/transmart/fmFolder/createStudy";
+		var createProgramURL = "/transmart/fmFolder/createProgram";
+		var saveMetaDataURL = "/transmart/fmFolder/updateMetaData";
+		var saveAssayURL = "/transmart/fmFolder/saveAssay";
+		var saveAnalysisURL = "/transmart/fmFolder/saveAnalysis";
+		var saveStudyURL = "/transmart/fmFolder/saveStudy";
+		var saveFolderURL = "/transmart/fmFolder/saveFolder";
+		var saveProgramURL = "/transmart/fmFolder/saveProgram";
+		
+		var welcomeURL = "/transmart/RWG/ajaxWelcome";
+		var searchLogURL = "/transmart/RWG/searchLog";
+		
+		var deleteFileURL = "/transmart/fmFolder/deleteFile";
+		var deleteFolderURL = "/transmart/fmFolder/deleteFolder";
+		
+		var updateSearchCategoryURL = "/transmart/RWG/updateSearchCategory";
+		
+		var platformTypesUrl = '/transmart/bioAssayPlatform/platformsForVendor';
+		
+		var ajaxPlatformsURL = '/transmart/fmFolder/ajaxPlatforms';
+		
+		var addNodeRwgURL = "/transmart/RWG/addOpenedNodeRWG";
+		var removeNodeRwgURL = "/transmart/RWG/removeOpenedNodeRWG";
+		var resetNodesRwgURL = "/transmart/RWG/resetOpenedNodes";
+		
+		var addNodeDseURL = "/transmart/RWG/addOpenedNodeDSE";
+		var removeNodeDseURL = "/transmart/RWG/removeOpenedNodeDSE";
+		
+	</script>
+	<script charset="utf-8" type="text/javascript">
+		var mouse_inside_options_div = false;
+		var sessionSearch = "";
+		var sessionOperators = "";
+		var sessionSearchCategory = "";
+		var searchPage = "RWG";
 	
-        <img src="images/logo.png" />
+		jQuery(document).ready(function() {
 	
-
+			addToggleButton();
+	
+			jQuery("#xtButton").colorbox({opacity:.75, inline:true, width:"95%", height:"95%"});
+		
+			jQuery("#searchResultOptions_btn").click(function(){
+				jQuery("#searchResultOptions").toggle();
+			});
+					
+			//used to hide the options div when the mouse is clicked outside of it
+		
+			jQuery('#searchResultOptions_holder').hover(function(){ 
+				mouse_inside_options_div=true; 
+			}, function(){ 
+				mouse_inside_options_div=false; 
+			});
+	
+			jQuery("body").mouseup(function(){ 
+				//top menu options
+				if(! mouse_inside_options_div ){
+					jQuery('#searchResultOptions').hide();
+			}
+	
+				var analysisID = jQuery('body').data('heatmapControlsID');
+	
+				if(analysisID > 1){
+					jQuery('#heatmapControls_' +analysisID).hide();
+					}
+	
+			});
+			
+			jQuery("#editMetadataOverlay").on('click', '#cancelmetadatabutton', function(){ 
+				if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
+				jQuery('#editMetadataOverlay').fadeOut();
+			});
+			
+			jQuery("#editMetadataOverlay").on('click', '#savemetadatabutton', function() {
+				if (jQuery(this).hasClass('buttonloading')) {return false; }
+				
+				var protoForm = $('editMetadataForm');
+				var serializedForm = jQuery(protoForm).serialize();
+				jQuery('#savemetadatabutton').addClass('buttonloading').html("&amp;nbsp;");
+	
+				jQuery.ajax({
+					url: saveMetaDataURL + "?" + serializedForm,
+					success: function (response) {
+						if (response.errors != undefined) {
+							jQuery('#editMetadataOverlay').scrollTop(0);
+							jQuery('#displayMetadataErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
+							jQuery('#savemetadatabutton').removeClass('buttonloading').text('Save');
+				}else{
+							jQuery('#result-folder-name-' + response.id).text(response.folderName);
+							jQuery('#editMetadataOverlay').fadeOut();
+							showDetailDialog(response.id);
+				}
+					},
+					error: function (xhr) {
+						jQuery('#savemetadatabutton').removeClass('buttonloading').text('Save');
+						alert(xhr);
+					},
+					type: 'POST'
+				});
+			});
+	
+			jQuery("#createAssayOverlay").on('click', '#cancelassaybutton', function(){ 
+				if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
+				jQuery('#createAssayOverlay').fadeOut();
+			});
+			
+			jQuery("#createAssayOverlay").on('click', '#saveassaybutton', function() {
+				var protoForm = $('createAssayForm');
+				var serializedForm = jQuery(protoForm).serialize();
+				jQuery('#saveassaybutton').addClass('buttonloading').html("&amp;nbsp;");
+				jQuery.ajax({
+					url: saveAssayURL + "?" + serializedForm,
+					success: function (response) {
+						if (response.errors != undefined) {
+							jQuery('#createAssayOverlay').scrollTop(0);
+							jQuery('#displayAssayErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
+							jQuery('#saveassaybutton').removeClass('buttonloading').text('Save');
+						} else {
+							//updateFolder(response.parentId);
+							jQuery('#createAssayOverlay').fadeOut();
+							//showDetailDialog(response.id);
+							updateForNewFolder(response.id);
+			}
+					},
+					error: function (xhr) {
+						alert(xhr);
+						jQuery('#saveassaybutton').removeClass('buttonloading').text('Save');
+					},
+					type: 'POST'
+				});
+			});
+	
+			
+			jQuery("#createFolderOverlay").on('click', '#cancelfolderbutton', function(){ 
+				if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
+				jQuery('#createFolderOverlay').fadeOut();
+			});
+	
+			jQuery("#createFolderOverlay").on('click', '#savefolderbutton', function() {
+				var protoForm = $('createFolderForm');
+				var serializedForm = jQuery(protoForm).serialize();
+				jQuery('#savefolderbutton').addClass('buttonloading').html("&amp;nbsp;");
+				jQuery.ajax({
+					url: saveFolderURL + "?" + serializedForm,
+					success: function (response) {
+						if (response.errors != undefined) {
+							jQuery('#createFolderOverlay').scrollTop(0);
+							jQuery('#displayFolderErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
+							jQuery('#savefolderbutton').removeClass('buttonloading').text('Save');
+						} else {
+							//updateFolder(response.parentId);
+							jQuery('#createFolderOverlay').fadeOut();
+							//showDetailDialog(response.id);
+							updateForNewFolder(response.id);
+						}
+					},
+					error: function (xhr) {
+						alert(xhr);
+						jQuery('#savefolderbutton').removeClass('buttonloading').text('Save');
+					},
+					type: 'POST'
+				});
+			});
+	
+	
+			jQuery("#createStudyOverlay").on('click', '#cancelstudybutton', function(){ 
+				if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
+				jQuery('#createStudyOverlay').fadeOut();
+			});
+	
+			jQuery("#createStudyOverlay").on('click', '#savestudybutton', function() {
+				var protoForm = $('createStudyForm');
+				var serializedForm = jQuery(protoForm).serialize();
+				jQuery('#savestudybutton').addClass('buttonloading').html("&amp;nbsp;");
+				jQuery.ajax({
+					url: saveStudyURL + "?" + serializedForm,
+					success: function (response) {
+						if (response.errors != undefined) {
+							jQuery('#createStudyOverlay').scrollTop(0);
+							jQuery('#displayStudyErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
+							jQuery('#savestudybutton').removeClass('buttonloading').text('Save');
+						} else {
+							//updateFolder(response.parentId);
+							jQuery('#createStudyOverlay').fadeOut();
+							//showDetailDialog(response.id);
+							updateForNewFolder(response.id);
+						}
+					},
+					error: function (xhr) {
+						alert(xhr);
+						jQuery('#savestudybutton').removeClass('buttonloading').text('Save');
+					},
+					type: 'POST'
+				});
+			});
+	
+			jQuery("#createProgramOverlay").on('click', '#cancelprogrambutton', function(){ 
+				if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
+				jQuery('#createProgramOverlay').fadeOut();
+			});
+	
+			jQuery("#createProgramOverlay").on('click', '#saveprogrambutton', function() {
+	
+				var protoForm = $('createProgramForm');
+				var serializedForm = jQuery(protoForm).serialize();
+				jQuery('#saveprogrambutton').addClass('buttonloading').html("&amp;nbsp;");
+				jQuery.ajax({
+					url: saveProgramURL + "?" + serializedForm,
+					success: function (response) {
+						if (response.errors != undefined) {
+							jQuery('#createProgramOverlay').scrollTop(0);
+							jQuery('#displayProgramErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
+							jQuery('#saveprogrambutton').removeClass('buttonloading').text('Save');
+						} else {
+							showSearchResults();
+							jQuery('#createProgramOverlay').fadeOut();
+							showDetailDialog(response.id);
+						}
+					},
+					error: function (xhr) {
+						alert(xhr);
+						jQuery('#saveprogrambutton').removeClass('buttonloading').text('Save');
+					},
+					type: 'POST'
+				});
+			});
+	
+			jQuery("#createAnalysisOverlay").on('click', '#cancelanalysisbutton', function(){ 
+				if (!confirm('Are you sure you want to cancel your changes?')) {return false;}
+				jQuery('#createAnalysisOverlay').fadeOut();
+			});
+	
+			jQuery("#createAnalysisOverlay").on('click', '#saveanalysisbutton', function() {
+				
+				var protoForm = $('createAnalysisForm');
+				var serializedForm = jQuery(protoForm).serialize();
+				jQuery('#saveanalysisbutton').addClass('buttonloading').html("&amp;nbsp;");
+				jQuery.ajax({
+					url: saveAnalysisURL + "?" + serializedForm,
+					success: function (response) {
+						if (response.errors != undefined) {
+							jQuery('#createAnalysis').scrollTop(0);
+							jQuery('#displayAnalysisErrors').empty().html('&lt;div class="errors"&gt;' + response.errors + '&lt;/div&gt;');
+							jQuery('#saveanalysisbutton').removeClass('buttonloading').text('Save');
+						} else {
+							//updateFolder(response.parentId);
+							jQuery('#createAnalysisOverlay').fadeOut();
+							//showDetailDialog(response.id);
+							updateForNewFolder(response.id);
+				}
+					},
+					error: function (xhr) {
+						alert(xhr);
+						jQuery('#saveanalysisbutton').removeClass('buttonloading').text('Save');
+	
+					},
+					type: 'POST'
+				});
+			});
+	
+			resizeAccordion();
+	
+			jQuery('#sidebar').resizable({
+				handles: 'e',
+				maxWidth: 800,
+				minWidth: 150,
+				resize: function(event, ui){
+					var currentWidth = ui.size.width;
+					
+					// this accounts for padding in the panels + 
+					// borders, you could calculate this using jQuery
+					var padding = 12; 
+					
+					// this accounts for some lag in the ui.size value, if you take this away 
+					// you'll get some unstable behaviour
+					jQuery(this).width(currentWidth);
+					
+					jQuery('#box-search').width(currentWidth - 20)
+					jQuery('#program-explorer').width(currentWidth - 20)
+					// jQuery('#results-div').width(currentWidth -20)
+					// set the content panel width
+					jQuery('#main').width(jQuery('body').width() - currentWidth - padding);
+					jQuery('#filter-browser').css('left', jQuery('#box-search').width() + 50);
+				}
+		  });
+	
+			var xpos = jQuery('#menuLinks').offset()['right'];
+	
+			});	
+	
+		jQuery(window).resize(function() {
+			resizeAccordion();
+		});
+	
+		function resizeAccordion() {
+			
+			var windowHeight = jQuery(window).height();
+			jQuery('#sidebar').height(jQuery(window).height()-30);
+			jQuery('#main').height(jQuery(window).height()-30);
+			var ypos = jQuery('#program-explorer').offset()['top'];
+			
+			var targetHeight = windowHeight - ypos - 60;
+			jQuery('#results-div').height(targetHeight);
+			jQuery('#welcome').height(windowHeight - 90);
+			
+			if (jQuery('#sidebar:visible').size() &gt; 0) {
+				jQuery('#main').width(jQuery('body').width() - jQuery('#sidebar').width() - 12);
+			}
+			else {
+				jQuery('#main').width("100%");
+			}
+			
+			
+			jQuery('#box-search').width(jQuery('#program-explorer').width());
+		}
+	
+		function updateExportCount() {
+			var checkboxes = jQuery('#exporttable input:checked');
+			
+			if (checkboxes.size() == 0) {
+				jQuery('#exportbutton').text('No files to export').addClass('disabled');
+			}
+			else {
+				jQuery('#exportbutton').removeClass('disabled').text('Export selected files (' + checkboxes.size() + ')');
+			}
+		}
+	
+	function dataTableWrapper (containerId, tableId, title, sort, pageSize)
+		{
+	
+			var data;
+			var gridPanelHeaderTips;
+			
+			function setupWrapper()
+			{
+				var gridContainer =  $j('#' + containerId);
+				gridContainer.html('&lt;table id=\'' + tableId + '\'&gt;&lt;/table&gt;&lt;/div&gt;');
+				 }
+	
+			function overrideSort() {
+	
+				$j.fn.dataTableExt.oSort['numeric-pre']  = function(a) {
+					
+					var floatA = parseFloat(a);
+					var returnValue;
+					
+					if (isNaN(floatA))
+						returnValue = Number.MAX_VALUE * -1;    //Emptys will go to top for -1, bottom for +1   
+						else
+							returnValue = floatA;
+					
+						return returnValue;
+					};
+	
+			};
+	
+			this.loadData = function(dataIn) {
+	
+	
+				setupWrapper();
+				
+				data = dataIn;
+				setupGridData(data, sort, pageSize);
+				
+				gridPanelHeaderTips = data.headerToolTips.slice(0);
+	
+				//Add the callback for when the grid is redrawn
+				data.fnDrawCallback = function( oSettings ) {
+	
+					//Removed the tooltips
+					/*
+					$j(".dataTables_scrollHeadInner &gt; table &gt; thead &gt; tr &gt; th").each( function (index) {
+						
+						var titleAttr = $j(this).attr("title");
+						
+						if (titleAttr == null &amp;&amp; gridPanelHeaderTips != null)
+						{
+							$j(this).attr("title", gridPanelHeaderTips[index]);            
+						}
+						
+			});	
+					*/
+	
+					//Hide the pagination if both directions are disabled.
+					if (jQuery('#' + tableId + '_paginate .paginate_disabled_previous').size() &gt; 0 &amp;&amp; jQuery('#' + tableId + '_paginate .paginate_disabled_next').size() &gt; 0) {
+						jQuery('#' + tableId + '_paginate').hide();
+					}
+				};
+	
+				data.fnInitComplete = function() {this.fnAdjustColumnSizing();};
+	
+				$j('#' + tableId).dataTable(data);
+	
+				$j(window).bind('resize', function () {
+					$j('#' + tableId).dataTable().fnAdjustColumnSizing()
+		});	
+	
+				 $j("#" + containerId + " div.gridTitle").html(data.iTitle);                  
+	
+			};
+			
+	
+			function setupGridData(data, sort, pageSize)
+			{
+				data.bAutoWidth = true;
+				data.bScrollAutoCss = true;
+	//                    data.sScrollY = 400;
+				data.sScrollX = "100%";
+				data.bDestroy = true;
+				data.bProcessing = true;
+				data.bLengthChange = false;
+				data.bScrollCollapse = false;
+				data.iDisplayLength = 10;
+				if (pageSize != null &amp;&amp; pageSize &gt; 0) {
+					data.iDisplayLength = pageSize;
+				}
+				if (sort != null) {
+					data.aaSorting = sort;
+				}
+				data.sDom = '&lt;"top"&lt;"gridTitle"&gt;Rrt&gt;&lt;"bottom"p&gt;' //WHO DESIGNED THIS
+			}
+		}
+	
+		
+	//		var panel = createOntPanel()
+	//		jQuery('#metadata-viewer').empty()
+	//           jQuery('#metadata-viewer').add(panel);
+	</script>
+		
+	<script type="text/javascript">		
+		jQuery(function ($) {
+			// Load dialog on click of Save link
+			$('#save-modal .basic').click(openSaveSearchDialog);
+		});
+	</script>
+</head>
+<body>
+<div id="cboxOverlay" style="display: none;"></div>
+<div id="colorbox" class="" style="padding-bottom: 57px; padding-right: 28px; display: none;">
+  <div id="cboxWrapper">
+    <div>
+      <div id="cboxTopLeft" style="float: left;"></div>
+      <div id="cboxTopCenter" style="float: left;"></div>
+      <div id="cboxTopRight" style="float: left;"></div>
+    </div>
+    <div style="clear: left;">
+      <div id="cboxMiddleLeft" style="float: left;"></div>
+      <div id="cboxContent" style="float: left;">
+        <div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div>
+        <div id="cboxLoadingOverlay" style="float: left;"></div>
+        <div id="cboxLoadingGraphic" style="float: left;"></div>
+        <div id="cboxTitle" style="float: left;"></div>
+        <div id="cboxCurrent" style="float: left;"></div>
+        <div id="cboxNext" style="float: left;"></div>
+        <div id="cboxPrevious" style="float: left;"></div>
+        <div id="cboxSlideshow" style="float: left;"></div>
+        <div id="cboxClose" style="float: left;"></div>
+      </div>
+      <div id="cboxMiddleRight" style="float: left;"></div>
+    </div>
+    <div style="clear: left;">
+      <div id="cboxBottomLeft" style="float: left;"></div>
+      <div id="cboxBottomCenter" style="float: left;"></div>
+      <div id="cboxBottomRight" style="float: left;"></div>
+    </div>
+  </div>
+  <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
 </div>
-        
-
-		   			
-<table width="100%" style="height: 28px; border-collapse: collapse" class="menuDetail">
-	<tbody><tr>
-		<th style="width: 160px" class="menuBar">
-			?
-		</th>
-		<th style="width: 150px" class="menuBar"><select id="search-categories"><option value="ALL" id="allCategory">All</option><option value="text">Free Text</option><option value="ANALYSES">Analyses</option><option value="DATA TYPE">Data type</option><option value="DATA_SOURCE">Data_source</option><option value="DISEASE">Disease</option><option value="EXPERIMENTAL DESIGN">Experimental design</option><option value="GENE">Gene</option><option value="ORGANISM">Organism</option><option value="PLATFORM">Platform</option><option value="SAMPLE TYPE">Sample type</option><option value="Study">Study</option><option value="THERAPEUTIC AREAS">Therapeutic areas</option></select></th>
-		<th style="width: 160px" class="menuBar"><input id="search-ac" class="ui-autocomplete-input" autocomplete="off" /><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></th>
-		<th style="width: 110px" class="menuBar">
-			
-				<div class="greybutton" id="cartbutton">
-		   			
-					<img src="images/cart.png" /> Export Cart
-					
-					<div id="cartcount">0</div>
-				</div>
-			
-		</th>
-		<th style="text-align: left;" class="menuBar">
-			<!-- menu links -->
-			<div "="" id="utilitiesMenu">
-				<ul id="utilitiesMenuList">
-					<li><a onclick="jQuery('#utilitiesMenu').hide(); popupWindow('', '_help')" href="#">Help</a></li>
-					<li><a href="mailto:" onclick="jQuery('#utilitiesMenu').hide();">Contact Us</a></li>
-					<li><a onclick="jQuery('#utilitiesMenu').hide(); alert('', 'Build Version: GPL1.2_PreAlpha - 65')" href="#">About</a></li>
-					<li class="utilMenuSeparator"><span class="utilMenuSeparator">?</span></li>
-					<li><a href="/transmart/login/forceAuth" onclick="jQuery('#utilitiesMenu').hide();">Log Out</a></li>
-					<!-- <li class="utilMenuSeparator"><span class="utilMenuSeparator">&nbsp;</span></li>
+<div class="header-div" id="header-div">
+  <div id="logocutout"> <img src="images/logo.png" /> </div>
+  <table width="100%" style="height: 28px; border-collapse: collapse" class="menuDetail">
+    <tbody>
+      <tr>
+        <th style="width: 160px" class="menuBar"> ? </th>
+        <th style="width: 150px" class="menuBar"><select id="search-categories">
+            <option value="ALL" id="allCategory">All</option>
+            <option value="text">Free Text</option>
+            <option value="ANALYSES">Analyses</option>
+            <option value="DATA TYPE">Data type</option>
+            <option value="DATA_SOURCE">Data_source</option>
+            <option value="DISEASE">Disease</option>
+            <option value="EXPERIMENTAL DESIGN">Experimental design</option>
+            <option value="GENE">Gene</option>
+            <option value="ORGANISM">Organism</option>
+            <option value="PLATFORM">Platform</option>
+            <option value="SAMPLE TYPE">Sample type</option>
+            <option value="Study">Study</option>
+            <option value="THERAPEUTIC AREAS">Therapeutic areas</option>
+          </select></th>
+        <th style="width: 160px" class="menuBar"><input id="search-ac" class="ui-autocomplete-input" autocomplete="off" />
+          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></th>
+        <th style="width: 110px" class="menuBar"> <div class="greybutton" id="cartbutton"> <img src="images/cart.png" /> Export Cart
+            <div id="cartcount">0</div>
+          </div>
+        </th>
+        <th style="text-align: left;" class="menuBar"> <!-- menu links -->
+          
+          <div "="" id="utilitiesMenu">
+            <ul id="utilitiesMenuList">
+              <li><a onclick="jQuery('#utilitiesMenu').hide(); popupWindow('', '_help')" href="#">Help</a></li>
+              <li><a href="mailto:" onclick="jQuery('#utilitiesMenu').hide();">Contact Us</a></li>
+              <li><a onclick="jQuery('#utilitiesMenu').hide(); alert('', 'Build Version: GPL1.2_PreAlpha - 65')" href="#">About</a></li>
+              <li class="utilMenuSeparator"><span class="utilMenuSeparator">?</span></li>
+              <li><a href="/transmart/login/forceAuth" onclick="jQuery('#utilitiesMenu').hide();">Log Out</a></li>
+              <!-- <li class="utilMenuSeparator"><span class="utilMenuSeparator">&nbsp;</span></li>
 					<li><a onclick="jQuery('#utilitiesMenu').hide();" href="/transmart/logout/index">Log Out</a></li> -->
-				</ul>
-			</div><table align="right" style="width: 1px;" id="menuLinks" class="menuDetail"> <!-- Use minimum possible width -->
-		    	<tbody><tr>
-		    		<th width="150">?</th>
-	   				
-
-			       	<th class="menuVisited">Browse</th>
-
-			       	<th class="menuLink"><a href="/transmart/datasetExplorer/index">Analyze</a></th>
-
-	       			
-	   				<th class="menuLink"><a href="/transmart/sampleExplorer/index">Sample Explorer</a></th>	   
-		   			
-
-	   				<th class="menuLink"><a href="/transmart/geneSignature/index">Gene?Signature/Lists</a></th>
-
-	   				<th class="menuLink"><a href="/transmart/GWAS/index">GWAS</a></th>
-
-	   				<th class="menuLink"><a href="/transmart/uploadData/index">Upload Data</a></th>
-
-		      		
-	   					<th class="menuLink"><a href="/transmart/accessLog/index">Admin</a></th>
-		       		
-		       		
-					
-
-
-			
-			<style type="text/css">
+            </ul>
+          </div>
+          <table align="right" style="width: 1px;" id="menuLinks" class="menuDetail">
+            <!-- Use minimum possible width -->
+            <tbody>
+              <tr>
+                <th width="150">?</th>
+                <th class="menuVisited">Browse</th>
+                <th class="menuLink"><a href="/transmart/datasetExplorer/index">Analyze</a></th>
+                <th class="menuLink"><a href="/transmart/sampleExplorer/index">Sample Explorer</a></th>
+                <th class="menuLink"><a href="/transmart/geneSignature/index">Gene?Signature/Lists</a></th>
+                <th class="menuLink"><a href="/transmart/GWAS/index">GWAS</a></th>
+                <th class="menuLink"><a href="/transmart/uploadData/index">Upload Data</a></th>
+                <th class="menuLink"><a href="/transmart/accessLog/index">Admin</a></th>
+                <style type="text/css">
 				#utilitiesMenu{font:normal 11px tahoma,arial,sans-serif; border:1px solid #718bb7;z-index:15000;zoom:1;background:#f0f0f0 repeat-y; padding: 4px; position: absolute; right: 0; top: 24px; display: none;}
 				#utilitiesMenu a{text-decoration:none!important; font-weight:normal!important;}
 				#utilitiesMenuList {background:transparent;border:0 none; list-style: none; margin: 10px 0 10px 25px;}
@@ -641,332 +641,173 @@ var removeNodeDseURL = "/transmart/RWG/removeOpenedNodeDSE";
 					overflow: hidden;
 				}
 			</style>
-			<th style="width: 100px; text-align: right" class="menuLink">
-				<a id="utilitiesMenuButton" onclick="toggleMenu(); return false;" href="#">Utilities</a>
-			</th>
-			
-			
-			
-			
-
-		       	</tr>
-		 	</tbody></table>
-		</th>
-
-	</tr>
-</tbody></table>
-
-<link href="css/sanofi.css" type="text/css" rel="stylesheet" />
-
-<script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script>
-<script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script>
-<script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script>
-
-<!-- Session timeout dialog -->
-
-
-
-
-        </div>
-		 
-		<div style="border-right: 5px solid rgb(237, 238, 246); border-color: rgb(237, 238, 246); height: 895px;" id="sidebar" class="ui-resizable">
-			
-	        			
-			
-			
-			<div style="width: 290px;" id="box-search">
-		        <div class="ui-widget-header boxtitle" id="title-search-div">
-			         <h2 class="title" style="float:left">
-			         	Active Filters
-			         	
-			         		
-			         	
-			         	<div class="andor and" id="globaloperator">?</div>
-			         </h2>
-					 <h2 class="title" style="float:right; padding-right:5px;">
-					 	<a onclick="clearSearch(); return false;" href="#">Clear</a>
-					 </h2> 
-					 <div class="greybutton filterbrowser" id="filterbutton">
-						<img src="images/filter.png" /> Filter
-					 </div>
-				</div>
-				<div class="boxcontent" id="active-search-div"></div>
-			</div>
-									
-				<div style="width: 290px" id="program-explorer">
-		        <div class="ui-widget-header boxtitle" id="title-program-div">
-			         <h2 class="title" style="float:left">Program Explorer</h2>
-						</div>
-			    <div style="overflow: auto; height: 611.267px;" class="boxcontent" id="results-div">
-
-
-
-
-
-
-    
-
-
-
-
-<div class="search-results-table">
-    
-        
-        
-            <table name="FOL:1992079" class="folderheader" id="folder-header-1992079">
-
-                <tbody><tr>
-                    <td class="foldertitle">
-                        
-                        
-                        <span>
-                            
-                                
-
-                                <a onclick="toggleDetailDiv('1992079', folderContentsURL + '?id=1992079&amp;auto=false', false, false, true);" href="#" id="toggleDetail_1992079">
-                                    <img src="images/folderminus.png" id="imgExpand_1992079" alt="expand/collapse" />
-                                    <span class="foldericon program"></span>
-                                </a>
-                            
-                        </span>
-                        
-                        <a onclick="showDetailDialog(1992079);" href="#">
-
-                            
-                            
-                            <span title="Immuno-inflammation: Pulmonary Sarcoidosis" class="result-folder-name  accLev_NA" id="result-folder-name-1992079">Immuno-inflammation: Pulmonary Sarcoidosis</span>
-                        </a>
-                    </td>
-                </tr>
-
-                
-                    
-
-                    
-                
-
-                
-
-                
-            </tbody></table>
-        
+                <th style="width: 100px; text-align: right" class="menuLink"> <a id="utilitiesMenuButton" onclick="toggleMenu(); return false;" href="#">Utilities</a> </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <link href="css/sanofi.css" type="text/css" rel="stylesheet" />
+  <script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script> 
+  <script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script> 
+  <script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script> 
+  
+  <!-- Session timeout dialog --> 
+  
+</div>
+<div style="border-right: 5px solid rgb(237, 238, 246); border-color: rgb(237, 238, 246); height: 895px;" id="sidebar" class="ui-resizable">
+  <div style="width: 290px;" id="box-search">
+    <div class="ui-widget-header boxtitle" id="title-search-div">
+      <h2 class="title" style="float:left"> Active Filters
+        <div class="andor and" id="globaloperator">?</div>
+      </h2>
+      <h2 class="title" style="float:right; padding-right:5px;"> <a onclick="clearSearch(); return false;" href="#">Clear</a> </h2>
+      <div class="greybutton filterbrowser" id="filterbutton"> <img src="images/filter.png" /> Filter </div>
+    </div>
+    <div class="boxcontent" id="active-search-div"></div>
+  </div>
+  <div style="width: 290px" id="program-explorer">
+    <div class="ui-widget-header boxtitle" id="title-program-div">
+      <h2 class="title" style="float:left">Program Explorer</h2>
+    </div>
+    <div style="overflow: auto; height: 611.267px;" class="boxcontent" id="results-div">
+      <div class="search-results-table">
+        <table name="FOL:1992079" class="folderheader" id="folder-header-1992079">
+          <tbody>
+            <tr>
+              <td class="foldertitle"><span> <a onclick="toggleDetailDiv('1992079', folderContentsURL + '?id=1992079&amp;auto=false', false, false, true);" href="#" id="toggleDetail_1992079"> <img src="images/folderminus.png" id="imgExpand_1992079" alt="expand/collapse" /> <span class="foldericon program"></span> </a> </span> <a onclick="showDetailDialog(1992079);" href="#"> <span title="Immuno-inflammation: Pulmonary Sarcoidosis" class="result-folder-name  accLev_NA" id="result-folder-name-1992079">Immuno-inflammation: Pulmonary Sarcoidosis</span> </a></td>
+            </tr>
+          </tbody>
+        </table>
         <div class="detailexpand gtb1 analysesopen" name="1992079" id="1992079_detail" data="true">
-
-
-
-
-
-
-    
-
-
-
-
-<div class="search-results-table">
-    
-        
-        
+          <div class="search-results-table">
             <table name="FOL:1990066" class="folderheader" id="folder-header-1990066">
-
-                <tbody><tr>
-                    <td class="foldertitle">
-                        
-                        
-                        <span>
-                            
-                                <a href="#" id="toggleDetail_1990066">
-                                    <img src="images/folderleaf.png" id="imgExpand_1990066" alt="expand/collapse" />
-                                    <span class="foldericon study"></span>
-                                </a>
-                            
-                        </span>
-                        
-                        <a onclick="showDetailDialog(1990066);" href="#">
-
-                            
-                            
-                            <span title="Pulmonary Sarcoidosis Ho GSE19976" class="result-folder-name  accLev_ADMIN" id="result-folder-name-1990066">Pulmonary Sarcoidosis Ho GSE19976</span>
-                        </a>
-                    </td>
+              <tbody>
+                <tr>
+                  <td class="foldertitle"><span> <a href="#" id="toggleDetail_1990066"> <img src="images/folderleaf.png" id="imgExpand_1990066" alt="expand/collapse" /> <span class="foldericon study"></span> </a> </span> <a onclick="showDetailDialog(1990066);" href="#"> <span title="Pulmonary Sarcoidosis Ho GSE19976" class="result-folder-name  accLev_ADMIN" id="result-folder-name-1990066">Pulmonary Sarcoidosis Ho GSE19976</span> </a></td>
                 </tr>
-
-                
-                    
-
-                    
-                
-
-                
-
-                
-            </tbody></table>
-        
-        <div class="detailexpand" name="1990066" id="1990066_detail"></div>
-    
-</div>
-</div>
-    
-</div>
-</div>
-						</div>
-		    
-		    <div style="display: none;" id="filter-div"></div>
-			
-						<div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000;"></div></div>
-
-		<div id="main" style="height: 895px; width: 962px;">		     	
-                <div id="folder-viewer">
-                <div id="welcome-viewer"></div>
-                <div id="metadata-viewer" class="ajaxloading"></div>
-		
-  				<div id="subfolder-viewer">
-		</div>
+              </tbody>
+            </table>
+            <div class="detailexpand" name="1990066" id="1990066_detail"></div>
+          </div>
         </div>
-        
-				<div style="display: none;" id="subject-view-div">
-				
-		</div>
-				<div style="display: none;" id="export-div">
-		 
-		</div>
-		</div>
-		
-		<div style="display:none" id="hiddenItems">
-		        <!-- For image export -->
-		        <canvas height="600px" width="1000px" id="canvas"></canvas>  
-
-		</div>
-		
-		<!--  This is the DIV we stuff the browse windows into. -->
-		<div style="display: none;" class="overlay" id="exportOverlay">?</div>
-		<div style="margin: 8px;" class="overlay" id="editMetadataOverlay">			        	
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closeedit">Close</span>
-		</div>
-		<h3 class="rdc-h3" id="edittitle">Edit Metadata</h3>
-	</div>
-	<div id="editMetadata">
-	?
-	</div>
+      </div>
+    </div>
+  </div>
+  <div style="display: none;" id="filter-div"></div>
+  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000;"></div>
 </div>
-		<div style="margin: 8px;" class="overlay" id="createAnalysisOverlay">			        	
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closeanalysis">Close</span>
-		</div>
-		<h3 class="rdc-h3" id="edittitle">Create Analysis</h3>
-	</div>
-	<div id="createAnalysis">
-	?
-	</div>
+<div id="main" style="height: 895px; width: 962px;">
+  <div id="folder-viewer">
+    <div id="welcome-viewer"></div>
+    <div id="metadata-viewer" class="ajaxloading"></div>
+    <div id="subfolder-viewer"> </div>
+  </div>
+  <div style="display: none;" id="subject-view-div"> </div>
+  <div style="display: none;" id="export-div"> </div>
 </div>
-		<div style="margin: 8px;" class="overlay" id="createAssayOverlay">			        	
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closeassay">Close</span>
-		</div>
-		<h3 class="rdc-h3" id="edittitle">Create Assay</h3>
-	</div>
-	<div id="createAssay">
-	?
-	</div>
-</div>
-		<div style="margin: 8px;" class="overlay" id="createFolderOverlay">			        	
-	<div id="displayErrors"></div>
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closefolder">Close</span>
-		</div>
-		<h3 class="rdc-h3" id="edittitle">Create Folder</h3>
-	</div>
-	<div id="createFolder">
-	?
-	</div>
-</div>
-		<div style="margin: 8px;" class="overlay" id="createStudyOverlay">			        	
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closestudy">Close</span>
-		</div>
-		<h3 class="rdc-h3" id="edittitle">Create Study</h3>
-	</div>
-	<div id="createStudy">
-	?
-	</div>
-</div>
-		<div style="margin: 8px;" class="overlay" id="createProgramOverlay">			        	
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closeprogram">Close</span>
-		</div>
-		<h3 class="rdc-h3" id="edittitle">Create Program</h3>
-	</div>
-	<div id="createProgram">
-	?
-	</div>
-</div>
-		<div style="width:800px; display: none;" id="divBrowsePopups">
-			
-		</div>
-		
-		<!--  Another DIV for the manhattan plot options. -->
-		<div style="width:300px; display: none;" id="divPlotOptions">
-			<table class="columndetail">
-				<tbody><tr>
-					<td class="columnname">SNP Annotation Source</td>
-					<td>
-						<select style="width: 220px" id="plotSnpSource">
-							<option value="19">Human Genome 19</option>
-							<option value="18">Human Genome 18</option>
-						</select>
-					</td>
-				</tr>
-				
-				<tr>
-					<td class="columnname">P-value cutoff</td>
-					<td>
-						<input style="width: 210px" id="plotPvalueCutoff" />
-					</td>
-				</tr>
-			</tbody></table>
-		</div>
-		
-		<!-- Everything for the across trial function goes here and is displayed using colorbox -->
-		<div style="display:none">
-			<div id="xtHolder">
-				<div id="xtTopbar">
-					<p>Cross Trial Analysis</p>
-					<ul id="xtMenu">
-						<li>Summary</li>
-						<li>Heatmap</li>
-						<li>Boxplot</li>
-					</ul>
-					<p>close</p>
-				</div>
-				<div id="xtSummary"><!-- Summary Tab Content --></div>
-				<div id="xtHeatmap"><!-- Heatmap Tab Content --></div>
-				<div id="xtBoxplot"><!-- Boxplot Tab Content --></div>
-		</div>
-		</div>
-
-		
-		<div id="sidebartoggle">?</div>
-		<div class="ajaxloading overlay" style="display: none;" id="filter-browser">			        	
-	<div>
-		<div style="float: right;">
-			<span class="greybutton buttonicon close" id="closefilter">Close</span>
-		</div>
-		<h3 class="rdc-h3">Filters</h3>
-	</div>
+<div style="display:none" id="hiddenItems"> 
+  <!-- For image export -->
+  <canvas height="600px" width="1000px" id="canvas"></canvas>
 </div>
 
-       <!--  Used to measure the width of a text element (in svg plots) -->
-       <span style="visibility: hidden; white-space: nowrap;" id="ruler"></span> 
-       <div id="testTextHeightDiv"></div>
-        <script type="text/javascript" src="bundle-bundle_session_timeout_nodep_defer.js"></script>
+<!--  This is the DIV we stuff the browse windows into. -->
+<div style="display: none;" class="overlay" id="exportOverlay">?</div>
+<div style="margin: 8px;" class="overlay" id="editMetadataOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeedit">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Edit Metadata</h3>
+  </div>
+  <div id="editMetadata"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createAnalysisOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeanalysis">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Analysis</h3>
+  </div>
+  <div id="createAnalysis"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createAssayOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeassay">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Assay</h3>
+  </div>
+  <div id="createAssay"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createFolderOverlay">
+  <div id="displayErrors"></div>
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closefolder">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Folder</h3>
+  </div>
+  <div id="createFolder"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createStudyOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closestudy">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Study</h3>
+  </div>
+  <div id="createStudy"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createProgramOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeprogram">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Program</h3>
+  </div>
+  <div id="createProgram"> ? </div>
+</div>
+<div style="width:800px; display: none;" id="divBrowsePopups"> </div>
 
+<!--  Another DIV for the manhattan plot options. -->
+<div style="width:300px; display: none;" id="divPlotOptions">
+  <table class="columndetail">
+    <tbody>
+      <tr>
+        <td class="columnname">SNP Annotation Source</td>
+        <td><select style="width: 220px" id="plotSnpSource">
+            <option value="19">Human Genome 19</option>
+            <option value="18">Human Genome 18</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td class="columnname">P-value cutoff</td>
+        <td><input style="width: 210px" id="plotPvalueCutoff" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<!-- Everything for the across trial function goes here and is displayed using colorbox -->
+<div style="display:none">
+  <div id="xtHolder">
+    <div id="xtTopbar">
+      <p>Cross Trial Analysis</p>
+      <ul id="xtMenu">
+        <li>Summary</li>
+        <li>Heatmap</li>
+        <li>Boxplot</li>
+      </ul>
+      <p>close</p>
+    </div>
+    <div id="xtSummary"><!-- Summary Tab Content --></div>
+    <div id="xtHeatmap"><!-- Heatmap Tab Content --></div>
+    <div id="xtBoxplot"><!-- Boxplot Tab Content --></div>
+  </div>
+</div>
+<div id="sidebartoggle">?</div>
+<div class="ajaxloading overlay" style="display: none;" id="filter-browser">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closefilter">Close</span> </div>
+    <h3 class="rdc-h3">Filters</h3>
+  </div>
+</div>
+
+<!--  Used to measure the width of a text element (in svg plots) --> 
+<span style="visibility: hidden; white-space: nowrap;" id="ruler"></span>
+<div id="testTextHeightDiv"></div>
+<script type="text/javascript" src="bundle-bundle_session_timeout_nodep_defer.js"></script> 
 <script type="text/javascript">
 				function toggleMenu() {
 					jQuery('#utilitiesMenu').fadeToggle();
@@ -984,9 +825,20 @@ var removeNodeDseURL = "/transmart/RWG/removeOpenedNodeDSE";
 	    addTimeoutDialog(heartbeatURL, logoutURL);
    });
 </script>
-    
-
-<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="z-index: 1; display: none;"></ul><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-dialog-buttons" style="display: none; outline: 0px none; z-index: 1000;" tabindex="-1" role="dialog" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">Your session is about to expire!</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="timeout-div" class="ui-dialog-content ui-widget-content">
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="z-index: 1; display: none;">
+</ul>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-dialog-buttons" style="display: none; outline: 0px none; z-index: 1000;" tabindex="-1" role="dialog" aria-labelledby="ui-id-2">
+  <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">Your session is about to expire!</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div>
+  <div id="timeout-div" class="ui-dialog-content ui-widget-content">
     <p>You will be logged off in <span id="timeout-countdown"></span> seconds.</p>
     <p>Do you want to continue your session?</p>
-</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Yes, Keep Working</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">No, Logoff</span></button></div></div></div></body></html>
+  </div>
+  <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+    <div class="ui-dialog-buttonset">
+      <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Yes, Keep Working</span></button>
+      <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">No, Logoff</span></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
