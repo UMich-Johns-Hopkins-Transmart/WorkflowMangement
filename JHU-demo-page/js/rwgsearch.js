@@ -702,7 +702,7 @@ jQuery(document).ready(function() {
     	var id = jQuery(this).attr('name');
 
 		jQuery('#editMetadataOverlay').fadeIn();
-		jQuery('#editMetadata').empty().addClass('ajaxloading');
+/*		jQuery('#editMetadata').empty().addClass('ajaxloading');
 
 		jQuery.ajax({
 			url:editMetaDataURL,
@@ -714,7 +714,7 @@ jQuery(document).ready(function() {
 				alert(xhr.responseText);
 				jQuery('#editMetadata').html(response).removeClass('ajaxloading');
 			}
-		});
+		});*/
 	});
 	
     jQuery('#box-search').on('click', '.andor', function() {

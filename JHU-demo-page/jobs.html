@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Force Internet Explorer 8 to override compatibility mode -->
+    <meta content="IE=EmulateIE8" http-equiv="X-UA-Compatible" />
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+    <title>tranSMART vnull (GPL, PostgresSQL)</title>
+    
+    <!-- jQuery CSS for cupertino theme -->
+    <link href="css/jquery/ui/jquery-ui-1.9.1.custom.css" rel="stylesheet" />        
+    <link href="css/jquery/skin/ui.dynatree.css" rel="stylesheet" />        
+    
+    <!-- Our CSS -->
+    <link href="css/jquery.loadmask.css" rel="stylesheet" />
+    <link href="bundle-bundle_main_mod_head.css" rel="stylesheet" />        
+    <link href="css/rwg.css" rel="stylesheet" />
+    <link href="css/colorbox.css" rel="stylesheet" />
+    <link href="css/jquery/simpleModal.css" rel="stylesheet" />
+    <link href="css/jquery/multiselect/ui.multiselect.css" rel="stylesheet" />
+    <link href="css/jquery/multiselect/common.css" rel="stylesheet" />
+    <link href="css/jquery/jqueryDatatable.css" rel="stylesheet" />
+    
+    <!-- jQuery JS libraries -->
+    <script src="js/jQuery/jquery.min.js" type="text/javascript"></script>   
+    <script src="js/jQuery/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.cookie.js" type="text/javascript"></script>   
+    <script src="js/jQuery/jquery.dynatree.min.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.paging.min.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.loadmask.min.js" type="text/javascript"></script>   
+    <script src="js/jQuery/jquery.ajaxmanager.js" type="text/javascript"></script>  
+    <script src="js/jQuery/jquery.numeric.js" type="text/javascript"></script>
+    <script src="js/jQuery/jquery.colorbox-min.js" type="text/javascript"></script>  
+    <script src="js/jQuery/jquery.simplemodal.min.js" type="text/javascript"></script>  
+    <script src="js/jQuery/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="js/facetedSearch/facetedSearchBrowse.js" type="text/javascript"></script>
+    <script src="js/jQuery/ui.multiselect.js" type="text/javascript"></script>  
+    <!--Datatable styling and scripts-->
+    <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="js/ColVis.min.js" type="text/javascript"></script> 
+    <script src="js/ColReorderWithResize.js" type="text/javascript"></script>
+    <!--  SVG Export -->
+    <script type="text/javascript">
+		var $j = jQuery.noConflict();
+    </script>
+    <script src="bundle-prototype_defer.js" type="text/javascript"></script>
+    <!-- Our JS -->        
+    <script src="js/rwg.js" type="text/javascript"></script>
+    <script src="js/rwgsearch.js" type="text/javascript"></script>
+    <script src="js/maintabpanel.js" type="text/javascript"></script>
+
+    <!-- Protovis Visualization library and IE plugin (for lack of SVG support in IE8 -->
+	<script charset="utf-8" type="text/javascript">
+		var searchResultsURL = "/transmart/RWG/loadSearchResults";
+		var facetResultsURL = "/transmart/RWG/getFacetResults";
+		var clearSearchFilterURL = "/transmart/RWG/clearSearchFilter";
+		var newSearchURL = "/transmart/RWG/newSearch";
+		var visualizationURL = "/transmart/RWG/newVisualization";
+		var tableURL = "/transmart/RWG/newTable";
+		var treeURL = "/transmart/RWG/getDynatree";
+		var sourceURL = "/transmart/RWG/searchAutoComplete";	      
+		var getCategoriesURL = "/transmart/RWG/getSearchCategories";
+		var getFilterCategoriesURL = "/transmart/RWG/getFilterCategories";
+		var getHeatmapNumberProbesURL = "/transmart/RWG/getHeatmapNumberProbes";
+		var getHeatmapDataURL = "/transmart/RWG/getHeatmapData";
+		var getHeatmapDataForExportURL = "/transmart/RWG/getHeatmapDataForExport2";
+		var getBoxPlotDataURL = "/transmart/RWG/getBoxPlotData";
+		var getLinePlotDataURL = "/transmart/RWG/getLinePlotData";	        
+		var saveSearchURL = "/transmart/RWG/saveFacetedSearch";
+		var loadSearchURL = "/transmart/RWG/loadFacetedSearch";
+		var deleteSearchURL = "/transmart/RWG/deleteFacetedSearch";
+		var exportAsImage = "/transmart/RWG/exportAsImage";
+		
+		var getStudyAnalysesUrl = "/transmart/RWG/getTrialAnalysis";
+		var fileDataUrl = "/transmart/RWG/getFileDetails";
+		
+		//These are the URLS for the different browse windows.
+		var studyBrowseWindow = "/transmart/experiment/browseExperimentsMultiSelect";
+		var analysisBrowseWindow = "/transmart/experimentAnalysis/browseAnalysisMultiSelect";
+		var regionBrowseWindow = "/transmart/RWG/getRegionFilter";
+		var dataTypeBrowseWindow = "/transmart/RWG/browseDataTypesMultiSelect";
+		var getTableDataURL = "/transmart/search/getTableResults";
+		var getAnalysisDataURL = "/transmart/search/getAnalysisResults";
+		var getQQPlotURL = "/transmart/search/getQQPlotImage";
+		
+		var webStartURL = "/transmart/search/webStartPlotter";
+		var datasetExplorerURL = "/transmart/datasetExplorer/index";
+		
+		var crossImageURL = "images/small_cross.png";
+		
+		var exportAddURL = "/transmart/fileExport/add";
+		var exportRemoveURL = "/transmart/fileExport/remove";
+		var exportViewURL = "/transmart/fileExport/view";
+		var exportURL = "/transmart/fileExport/export";
+		
+		var folderContentsURL = "/transmart/fmFolder/getFolderContents";
+		var folderDetailsURL = "/transmart/fmFolder/folderDetail";
+		var analysisDataURL = "/transmart/fmFolder/analysisTable";
+		var editMetaDataURL = "/transmart/fmFolder/editMetaData";
+		var createAnalysisURL = "/transmart/fmFolder/createAnalysis";
+		var createAssayURL = "/transmart/fmFolder/createAssay";
+		var createFolderURL = "/transmart/fmFolder/createFolder";
+		var createStudyURL = "/transmart/fmFolder/createStudy";
+		var createProgramURL = "/transmart/fmFolder/createProgram";
+		var saveMetaDataURL = "/transmart/fmFolder/updateMetaData";
+		var saveAssayURL = "/transmart/fmFolder/saveAssay";
+		var saveAnalysisURL = "/transmart/fmFolder/saveAnalysis";
+		var saveStudyURL = "/transmart/fmFolder/saveStudy";
+		var saveFolderURL = "/transmart/fmFolder/saveFolder";
+		var saveProgramURL = "/transmart/fmFolder/saveProgram";
+		
+		var welcomeURL = "/transmart/RWG/ajaxWelcome";
+		var searchLogURL = "/transmart/RWG/searchLog";
+		
+		var deleteFileURL = "/transmart/fmFolder/deleteFile";
+		var deleteFolderURL = "/transmart/fmFolder/deleteFolder";
+		
+		var updateSearchCategoryURL = "/transmart/RWG/updateSearchCategory";
+		
+		var platformTypesUrl = '/transmart/bioAssayPlatform/platformsForVendor';
+		
+		var ajaxPlatformsURL = '/transmart/fmFolder/ajaxPlatforms';
+		
+		var addNodeRwgURL = "/transmart/RWG/addOpenedNodeRWG";
+		var removeNodeRwgURL = "/transmart/RWG/removeOpenedNodeRWG";
+		var resetNodesRwgURL = "/transmart/RWG/resetOpenedNodes";
+		
+		var addNodeDseURL = "/transmart/RWG/addOpenedNodeDSE";
+		var removeNodeDseURL = "/transmart/RWG/removeOpenedNodeDSE";
+		
+	</script>
+	
+</head>
+<body>
+<div id="cboxOverlay" style="display: none;"></div>
+<div id="colorbox" class="" style="padding-bottom: 57px; padding-right: 28px; display: none;">
+  <div id="cboxWrapper">
+    <div>
+      <div id="cboxTopLeft" style="float: left;"></div>
+      <div id="cboxTopCenter" style="float: left;"></div>
+      <div id="cboxTopRight" style="float: left;"></div>
+    </div>
+    <div style="clear: left;">
+      <div id="cboxMiddleLeft" style="float: left;"></div>
+      <div id="cboxContent" style="float: left;">
+        <div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div>
+        <div id="cboxLoadingOverlay" style="float: left;"></div>
+        <div id="cboxLoadingGraphic" style="float: left;"></div>
+        <div id="cboxTitle" style="float: left;"></div>
+        <div id="cboxCurrent" style="float: left;"></div>
+        <div id="cboxNext" style="float: left;"></div>
+        <div id="cboxPrevious" style="float: left;"></div>
+        <div id="cboxSlideshow" style="float: left;"></div>
+        <div id="cboxClose" style="float: left;"></div>
+      </div>
+      <div id="cboxMiddleRight" style="float: left;"></div>
+    </div>
+    <div style="clear: left;">
+      <div id="cboxBottomLeft" style="float: left;"></div>
+      <div id="cboxBottomCenter" style="float: left;"></div>
+      <div id="cboxBottomRight" style="float: left;"></div>
+    </div>
+  </div>
+  <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+</div>
+<div class="header-div" id="header-div">
+  <div id="logocutout"> <img src="images/logo.png" /> </div>
+  <table width="100%" style="height: 28px; border-collapse: collapse" class="menuDetail">
+    <tbody>
+      <tr>
+        <th style="width: 160px" class="menuBar"> ? </th>
+        <th style="width: 150px" class="menuBar"><select id="search-categories">
+            <option value="ALL" id="allCategory">All</option>
+            <option value="text">Free Text</option>
+            <option value="ANALYSES">Analyses</option>
+            <option value="DATA TYPE">Data type</option>
+            <option value="DATA_SOURCE">Data_source</option>
+            <option value="DISEASE">Disease</option>
+            <option value="EXPERIMENTAL DESIGN">Experimental design</option>
+            <option value="GENE">Gene</option>
+            <option value="ORGANISM">Organism</option>
+            <option value="PLATFORM">Platform</option>
+            <option value="SAMPLE TYPE">Sample type</option>
+            <option value="Study">Study</option>
+            <option value="THERAPEUTIC AREAS">Therapeutic areas</option>
+          </select></th>
+        <th style="width: 160px" class="menuBar"><input id="search-ac" class="ui-autocomplete-input" autocomplete="off" />
+          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></th>
+        <th style="width: 110px" class="menuBar"> <div class="greybutton" id="cartbutton"> <img src="images/cart.png" /> Export Cart
+            <div id="cartcount">0</div>
+          </div>
+        </th>
+        <th style="text-align: left;" class="menuBar"> <!-- menu links -->
+          
+          <div "="" id="utilitiesMenu">
+            <ul id="utilitiesMenuList">
+              <li><a onclick="jQuery('#utilitiesMenu').hide(); popupWindow('', '_help')" href="#">Help</a></li>
+              <li><a href="mailto:" onclick="jQuery('#utilitiesMenu').hide();">Contact Us</a></li>
+              <li><a onclick="jQuery('#utilitiesMenu').hide(); alert('', 'Build Version: GPL1.2_PreAlpha - 65')" href="#">About</a></li>
+              <li class="utilMenuSeparator"><span class="utilMenuSeparator">?</span></li>
+              <li><a href="/transmart/login/forceAuth" onclick="jQuery('#utilitiesMenu').hide();">Log Out</a></li>
+              <!-- <li class="utilMenuSeparator"><span class="utilMenuSeparator">&nbsp;</span></li>
+					<li><a onclick="jQuery('#utilitiesMenu').hide();" href="/transmart/logout/index">Log Out</a></li> -->
+            </ul>
+          </div>
+          <table align="right" style="width: 1px;" id="menuLinks" class="menuDetail">
+            <!-- Use minimum possible width -->
+            <tbody>
+              <tr>
+                <th width="150">?</th>
+                <th class="menuVisited">Browse</th>
+                <th class="menuLink"><a href="/transmart/datasetExplorer/index">Analyze</a></th>
+                <th class="menuLink"><a href="/transmart/sampleExplorer/index">Sample Explorer</a></th>
+                <th class="menuLink"><a href="/transmart/geneSignature/index">Gene?Signature/Lists</a></th>
+                <th class="menuLink"><a href="/transmart/GWAS/index">GWAS</a></th>
+                <th class="menuLink"><a href="/transmart/uploadData/index">Upload Data</a></th>
+                <th class="menuLink"><a href="/transmart/accessLog/index">Admin</a></th>
+                <style type="text/css">
+				#utilitiesMenu{font:normal 11px tahoma,arial,sans-serif; border:1px solid #718bb7;z-index:15000;zoom:1;background:#f0f0f0 repeat-y; padding: 4px; position: absolute; right: 0; top: 24px; display: none;}
+				#utilitiesMenu a{text-decoration:none!important; font-weight:normal!important;}
+				#utilitiesMenuList {background:transparent;border:0 none; list-style: none; margin: 10px 0 10px 25px;}
+				#utilitiesMenu li{line-height:100%; padding: 4px; border:1px solid #f0f0f0; cursor: pointer;}
+				#utilitiesMenu li:hover {background-color: #DDDDFF; border:1px solid #718bb7}
+				#utilitiesMenu li a {color: #000}
+				#utilitiesMenuButton {
+					cursor: pointer;
+					font-weight: bold;
+					color: #EEE;
+				}
+				li.utilMenuSeparator { padding: 0px; font-size: 1px; line-height: 1px;}
+				span.utilMenuSeparator {display: block;
+					font-size: 1px;
+					line-height: 1px;
+					margin: 2px 3px;
+					background-color: #E0E0E0;
+					border-bottom: 1px solid white;
+					overflow: hidden;
+				}
+			</style>
+                <th style="width: 100px; text-align: right" class="menuLink"> <a id="utilitiesMenuButton" onclick="toggleMenu(); return false;" href="#">Utilities</a> </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <link href="css/sanofi.css" type="text/css" rel="stylesheet" />
+  <script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script> 
+  <script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script> 
+  <script src="bundle-bundle_session_timeout_nodep_defer.js" type="text/javascript"></script> 
+  
+  <!-- Session timeout dialog --> 
+  
+</div>
+<div style="border-right: 5px solid rgb(237, 238, 246); border-color: rgb(237, 238, 246); height: 895px;" id="sidebar" class="ui-resizable">
+  <div style="width: 290px;" id="box-search">
+    <div class="ui-widget-header boxtitle" id="title-search-div">
+      <h2 class="title" style="float:left"> Active Filters
+        <div class="andor and" id="globaloperator">?</div>
+      </h2>
+      <h2 class="title" style="float:right; padding-right:5px;"> <a onclick="clearSearch(); return false;" href="#">Clear</a> </h2>
+      <div class="greybutton filterbrowser" id="filterbutton"> <img src="images/filter.png" /> Filter </div>
+    </div>
+    <div class="boxcontent" id="active-search-div"></div>
+  </div>
+  <div style="width: 290px" id="program-explorer">
+    <div class="ui-widget-header boxtitle" id="title-program-div">
+      <h2 class="title" style="float:left">Program Explorer</h2>
+    </div>
+    <div style="overflow: auto; height: 611.267px;" class="boxcontent" id="results-div">
+      <div class="search-results-table">
+        <table name="FOL:1992079" class="folderheader" id="folder-header-1992079">
+          <tbody>
+            <tr>
+            <td class="foldertitle">
+            	<span>
+                <a onclick=
+                "toggleDetailDiv('1992079', folderContentsURL + '?id=1992079&amp;auto=false', false, false, true);"
+                href="#" id="toggleDetail_1992079">
+                  <img src="images/folderminus.png" id="imgExpand_1992079" alt="expand/collapse" /> 
+                  <span class="foldericon program"></span> 
+                </a> 
+              </span>
+              <a onclick="showDetailDialog(1992079);" href="#">
+                  <span title="Immuno-inflammation: Pulmonary Sarcoidosis" 
+                        class="result-folder-name  accLev_NA" 
+                      id="result-folder-name-1992079">
+                     Immuno-inflammation: Pulmonary Sarcoidosis
+                  </span>
+              </a>
+            </td>
+           </tr>
+          </tbody>
+        </table>
+        <div class="detailexpand gtb1 analysesopen" name="1992079" id="1992079_detail" data="true">
+          <div class="search-results-table">
+            <table name="FOL:1990066" class="folderheader" id="folder-header-1990066">
+              <tbody>
+                <tr>
+                  <td class="foldertitle"><span> <a href="#" id="toggleDetail_1990066"> <img src="images/folderleaf.png" id="imgExpand_1990066" alt="expand/collapse" /> <span class="foldericon study"></span> </a> </span> <a onclick="showDetailDialog(1990066);" href="#"> <span title="Pulmonary Sarcoidosis Ho GSE19976" class="result-folder-name  accLev_ADMIN" id="result-folder-name-1990066">Pulmonary Sarcoidosis Ho GSE19976</span> </a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="detailexpand" name="1990066" id="1990066_detail"></div>
+          </div>
+        </div>
+        <table name="FOL:1992079" class="folderheader" id="folder-header-1992079">
+          <tbody>
+            <tr>
+            <td class="foldertitle">
+            	<span>
+                <a onclick=
+                "toggleDetailDiv('1992079', folderContentsURL + '?id=1992079&amp;auto=false', false, false, true);"
+                href="#" id="toggleDetail_1992079">
+                  <img src="images/folderminus.png" id="imgExpand_1992079" alt="expand/collapse" /> 
+                  <span class="foldericon program"></span> 
+                </a> 
+              </span>
+              <a onclick="showDetailDialog(1992079);" href="#">
+                  <span title="Immuno-inflammation: Pulmonary Sarcoidosis" 
+                        class="result-folder-name  accLev_NA" 
+                      id="result-folder-name-1992079">
+                     Immuno-inflammation: Pulmonary Sarcoidosis
+                  </span>
+              </a>
+            </td>
+           </tr>
+          </tbody>
+        </table>
+        <div class="detailexpand gtb1 analysesopen" name="1992079" id="1992079_detail" data="true">
+          <div class="search-results-table">
+            <table name="FOL:1990066" class="folderheader" id="folder-header-1990066">
+              <tbody>
+                <tr>
+                  <td class="foldertitle"><span> <a href="#" id="toggleDetail_1990066"> <img src="images/folderleaf.png" id="imgExpand_1990066" alt="expand/collapse" /> <span class="foldericon study"></span> </a> </span> <a onclick="showDetailDialog(1990066);" href="#"> <span title="Pulmonary Sarcoidosis Ho GSE19976" class="result-folder-name  accLev_ADMIN" id="result-folder-name-1990066">Pulmonary Sarcoidosis Ho GSE19976</span> </a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="detailexpand" name="1990066" id="1990066_detail"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: none;" id="filter-div"></div>
+  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000;"></div>
+</div>
+<div id="main" style="height: 821px; width: 912px;">		     	
+                <div id="folder-viewer">
+                <div id="welcome-viewer"></div>
+                <div id="metadata-viewer" class="">
+
+
+
+
+
+
+<div style="margin:10px;padding:10px;">
+    <input type="hidden" name="parentId" value="1992079" id="parentId">
+
+    <div>
+
+
+        <h3 class="rdc-h3">
+            Analysis Jobs
+        </h3>
+    </div>
+<table class="details-table">
+      <thead>
+          <tr>
+            <th class="columnheader">Job ID</th>
+            <th class="columnheader">Study Name</th>
+            <th class="columnheader">Study Type</th>
+            <th class="columnheader">Status</th>
+            <th class="columnheader">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>23</td>
+            <td>Jones 1234</td>
+            <td>RNASeq</td>
+            <td><a class="editmetadata" href="#">Processing</a></td>
+            <td><a href="#">Cancel</a> / <a href="#">Pause</a> </td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>Smith 4321</td>
+            <td>RNASeq</td>
+            <td>Complete</td>
+            <td><a href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>Jindal 6789</td>
+            <td>RNASeq</td>
+            <td>Complete</td>
+            <td><a href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Wu 45673</td>
+            <td>RNASeq</td>
+            <td>Complete</td>
+            <td><a href="#">Delete</a></td>
+          </tr>
+      </tbody>
+    </table>
+        <span></span>
+    
+
+
+    <div style="height:20px;"></div>
+    
+
+    <span></span>
+
+
+
+    
+
+
+    
+
+<!--  overlay div  -->
+
+    <div id="metaData_div" class="overlay">	<p>Loading data. Please wait...</p></div><div id="metaData_div_fade" class="backgroundOverlay"></div>
+</div>
+
+<!-- background-color:#9CA4E4;  -->
+    
+</div>
+		
+  				<div id="subfolder-viewer">
+		</div>
+        </div>
+        
+				<div id="subject-view-div" style="display: none;">
+				
+		</div>
+				<div id="export-div" style="display: none;">
+		 
+		</div>
+		</div>
+<div style="display:none" id="hiddenItems"> 
+  <!-- For image export -->
+  <canvas height="600px" width="1000px" id="canvas"></canvas>
+</div>
+
+<!--  This is the DIV we stuff the browse windows into. -->
+<div style="display: none;" class="overlay" id="exportOverlay">?</div>
+<div style="margin: 8px;" class="overlay" id="editMetadataOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeedit">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Job Status</h3>
+  </div>
+  <div><p>Showing last 100 lines of log file:</p></div>
+  <div id="editMetadata"><pre>Getting gene info...
+Mapping gene info to refSeq ids...
+Getting GO annotation...
+Mapping gene names to refseq ids...
+Formatting CuffDiff output...
+All done!
+Use of uninitialized value $list in multiplication (*) at /ccmb/BioinfCore/Common/SCRIPTS/Manjusha/get_DAVIDchartReport.pl line 112.
+
+User authentication: true
+Processing [1/1]:Uninjured_v_Vehicle48hpl_DEG_ids... 
+There are 0 genes in the input list.
+0% of list was mapped
+Total chart records: 0
+
+All done!
+/ccmb/BioinfCore/Projects/Parent_960_parent_mceachin_RS1/runInfo/Run_2014-05-20_14-26-34/Run_RSQ2_v3_2014_05_20.sh: line 54: Rscript: command not found
+/ccmb/BioinfCore/Projects/Parent_960_parent_mceachin_RS1/runInfo/Run_2014-05-20_14-26-34/Run_RSQ2_v3_2014_05_20.sh: line 55: Rscript: command not found
+/ccmb/BioinfCore/Projects/Parent_960_parent_mceachin_RS1/runInfo/Run_2014-05-20_14-26-34/Run_RSQ2_v3_2014_05_20.sh: line 56: Rscript: command not found
+done
+done
+Getting gene info...
+Mapping gene info to refSeq ids...
+Getting GO annotation...
+Mapping gene names to refseq ids...
+Formatting CuffDiff output...
+All done!
+Use of uninitialized value $list in multiplication (*) at /ccmb/BioinfCore/Common/SCRIPTS/Manjusha/get_DAVIDchartReport.pl line 112.
+
+User authentication: true
+Processing [1/1]:Uninjured_v_QA48hpl_DEG_ids... 
+There are 0 genes in the input list.
+0% of list was mapped
+Total chart records: 0
+
+All done!
+/ccmb/BioinfCore/Projects/Parent_960_parent_mceachin_RS1/runInfo/Run_2014-05-20_14-26-34/Run_RSQ2_v3_2014_05_20.sh: line 65: Rscript: command not found
+/ccmb/BioinfCore/Projects/Parent_960_parent_mceachin_RS1/runInfo/Run_2014-05-20_14-26-34/Run_RSQ2_v3_2014_05_20.sh: line 66: Rscript: command not found
+/ccmb/BioinfCore/Projects/Parent_960_parent_mceachin_RS1/runInfo/Run_2014-05-20_14-26-34/Run_RSQ2_v3_2014_05_20.sh: line 67: Rscript: command not found
+Email Sent Successfully</pre></div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createAnalysisOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeanalysis">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Analysis</h3>
+  </div>
+  <div id="createAnalysis"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createAssayOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeassay">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Assay</h3>
+  </div>
+  <div id="createAssay"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createFolderOverlay">
+  <div id="displayErrors"></div>
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closefolder">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Folder</h3>
+  </div>
+  <div id="createFolder"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createStudyOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closestudy">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Study</h3>
+  </div>
+  <div id="createStudy"> ? </div>
+</div>
+<div style="margin: 8px;" class="overlay" id="createProgramOverlay">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closeprogram">Close</span> </div>
+    <h3 class="rdc-h3" id="edittitle">Create Program</h3>
+  </div>
+  <div id="createProgram"> ? </div>
+</div>
+<div style="width:800px; display: none;" id="divBrowsePopups"> </div>
+
+<!--  Another DIV for the manhattan plot options. -->
+<div style="width:300px; display: none;" id="divPlotOptions">
+  <table class="columndetail">
+    <tbody>
+      <tr>
+        <td class="columnname">SNP Annotation Source</td>
+        <td><select style="width: 220px" id="plotSnpSource">
+            <option value="19">Human Genome 19</option>
+            <option value="18">Human Genome 18</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td class="columnname">P-value cutoff</td>
+        <td><input style="width: 210px" id="plotPvalueCutoff" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Everything for the across trial function goes here and is displayed using colorbox -->
+<div style="display:none">
+  <div id="xtHolder">
+    <div id="xtTopbar">
+      <p>Cross Trial Analysis</p>
+      <ul id="xtMenu">
+        <li>Summary</li>
+        <li>Heatmap</li>
+        <li>Boxplot</li>
+      </ul>
+      <p>close</p>
+    </div>
+    <div id="xtSummary"><!-- Summary Tab Content --></div>
+    <div id="xtHeatmap"><!-- Heatmap Tab Content --></div>
+    <div id="xtBoxplot"><!-- Boxplot Tab Content --></div>
+  </div>
+</div>
+<div id="sidebartoggle">?</div>
+<div class="ajaxloading overlay" style="display: none;" id="filter-browser">
+  <div>
+    <div style="float: right;"> <span class="greybutton buttonicon close" id="closefilter">Close</span> </div>
+    <h3 class="rdc-h3">Filters</h3>
+  </div>
+</div>
+
+<!--  Used to measure the width of a text element (in svg plots) --> 
+<span style="visibility: hidden; white-space: nowrap;" id="ruler"></span>
+<div id="testTextHeightDiv"></div>
+<script type="text/javascript" src="bundle-bundle_session_timeout_nodep_defer.js"></script> 
+<script type="text/javascript">
+				function toggleMenu() {
+					jQuery('#utilitiesMenu').fadeToggle();
+				}
+				
+				jQuery(document).ready(function() {
+					jQuery('#main').click(function() {
+						jQuery('#utilitiesMenu').hide();
+					});
+				});
+			
+    jQuery(document).ready(function() {
+		 var logoutURL = "/transmart/login/forceAuth";
+	    var heartbeatURL = "/transmart/userLanding/checkHeartBeat";
+	    addTimeoutDialog(heartbeatURL, logoutURL);
+   });
+</script>
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="z-index: 1; display: none;">
+</ul>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-dialog-buttons" style="display: none; outline: 0px none; z-index: 1000;" tabindex="-1" role="dialog" aria-labelledby="ui-id-2">
+  <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">Your session is about to expire!</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div>
+  <div id="timeout-div" class="ui-dialog-content ui-widget-content">
+    <p>You will be logged off in <span id="timeout-countdown"></span> seconds.</p>
+    <p>Do you want to continue your session?</p>
+  </div>
+  <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+    <div class="ui-dialog-buttonset">
+      <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Yes, Keep Working</span></button>
+      <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">No, Logoff</span></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
