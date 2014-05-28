@@ -404,7 +404,7 @@
 			jQuery('#results-div').height(targetHeight);
 			jQuery('#welcome').height(windowHeight - 90);
 			
-			if (jQuery('#sidebar:visible').size() &gt; 0) {
+			if (jQuery('#sidebar:visible').size() > 0) {
 				jQuery('#main').width(jQuery('body').width() - jQuery('#sidebar').width() - 12);
 			}
 			else {
@@ -483,7 +483,7 @@
 					*/
 	
 					//Hide the pagination if both directions are disabled.
-					if (jQuery('#' + tableId + '_paginate .paginate_disabled_previous').size() &gt; 0 &amp;&amp; jQuery('#' + tableId + '_paginate .paginate_disabled_next').size() &gt; 0) {
+					if (jQuery('#' + tableId + '_paginate .paginate_disabled_previous').size() > 0 && jQuery('#' + tableId + '_paginate .paginate_disabled_next').size() > 0) {
 						jQuery('#' + tableId + '_paginate').hide();
 					}
 				};
@@ -512,7 +512,7 @@
 				data.bLengthChange = false;
 				data.bScrollCollapse = false;
 				data.iDisplayLength = 10;
-				if (pageSize != null &amp;&amp; pageSize &gt; 0) {
+				if (pageSize != null && pageSize > 0) {
 					data.iDisplayLength = pageSize;
 				}
 				if (sort != null) {
