@@ -1,5 +1,4 @@
 /* Because we're working on IE8 */
-* { opacity: inherit; filter: inherit; }
 
 .uploadTable > tbody > tr > td {
 	padding: 8px;
@@ -207,6 +206,27 @@ li.sidebarRadio.selected a {
     background-color: #e1ecfa;
 }
 
-html {
-    overflow: auto;
+table.detail {
+    border-collapse:collapse;
+    width: 100%;
+    border:1px solid #ccc;
+     font: 10px verdana, arial, helvetica, sans-serif;
 }
+
+table.detail td {
+	 font: 10px verdana, arial, helvetica, sans-serif;
+     padding: 5px 3px;
+     text-align: left;
+     vertical-align: top;
+     border-bottom:1px solid #ccc;
+}
+
+table.detail td.name {
+	font-weight:bold;
+	background-color:#eee;
+}
+
+table.detail td.value {
+
+}
+

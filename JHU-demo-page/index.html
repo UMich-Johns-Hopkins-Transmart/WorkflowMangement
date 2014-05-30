@@ -19,7 +19,8 @@
     <link href="css/jquery/multiselect/ui.multiselect.css" rel="stylesheet" />
     <link href="css/jquery/multiselect/common.css" rel="stylesheet" />
     <link href="css/jquery/jqueryDatatable.css" rel="stylesheet" />
-    
+	<link href="css/uploadData.css" rel="stylesheet" />
+
     <!-- jQuery JS libraries -->
     <script src="js/jQuery/jquery.min.js" type="text/javascript"></script>   
     <script src="js/jQuery/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
@@ -511,7 +512,205 @@ Email Sent Successfully</pre></div>
     <div style="float: right;"> <span class="greybutton buttonicon close" id="closestudy">Close</span> </div>
     <h3 class="rdc-h3" id="edittitle">Start New Analysis</h3>
   </div>
-  <div id="createStudy"></div>
+  <div id="createStudy">
+ <form action="/transmart/fmFolder/index" method="post" name="createStudyForm" id="createStudyForm">
+<input type="hidden" name="id" value="" id="id">
+<input type="hidden" name="folderType" value="STUDY" id="folderType">
+<input type="hidden" name="parentId" value="1992079" id="parentId">
+
+
+<div id="displayStudyErrors">
+</div>
+<div>  
+
+        
+            </div><table class="detail" height="300px">
+	<tbody>
+	<tr>
+		<td valign="top" align="right" class="name">Study Name&nbsp;<span style="color: red;">*</span>:</td>
+		<td valign="top" align="left" name="folderName"><input type="text" size="100" name="folderName" value="" id="folderName"></td>            
+	</tr>
+	<tr>
+		<td valign="top" align="right" class="name">Description&nbsp;<span style="color: red;">*</span>:</td>
+		<td valign="top" align="left"><textarea size="100" cols="74" rows="10" name="description" id="description"></textarea></td>
+	</tr>
+	
+ 
+  
+ 
+
+
+
+
+
+
+
+
+    <tr>
+      <td valign="top" align="right" class="name">Base Directory<span style="color: red;">*</span></td>
+      <td valign="top" align="left" class="value"><input type="text" size="50" name="amTagItem_" value="" id="amTagItem_" />
+      <em>path to (Bioinformatics Core) projects directory </em></td>
+    </tr>
+    <tr>
+           <td valign="top" align="right" class="name">Max Number of Processors&nbsp;<span style="color: red;">*</span>:
+      </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                
+                 	  
+						
+		                	
+								<input type="text" size="5" name="accession" value="1" id="accession"></td>
+      </tr>
+        
+            <tr>
+              <td valign="top" align="right" class="name">Sequence Directory<span style="color: red;">*</span></td>
+              <td valign="top" align="left" class="value"><input type="text" size="50" name="amTagItem_2" value="" id="amTagItem_2" />
+              <em>path to (Sequencing Core) directory containing the raw reads</em></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">Genome&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                
+                	
+	           		
+                	  	
+	                	
+		                	
+								<input type="text" size="20" name="amTagItem_1995535" value="" id="amTagItem_1995535">
+								<em>								e.g. mm10
+			                
+						
+                	
+	           
+                </em></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">Reference Genome Bowtie Index&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                
+                	
+	           		
+                	  	
+	                	
+		                	
+								<input type="text" size="50" name="amTagItem_1995536" value="" id="amTagItem_1995536">
+                <em>path to the reference genome bowtie index files </em></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">Alignment Directory&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                
+                	
+	           		
+                	  	
+	                	
+		                	
+								<input type="text" size="50" name="amTagItem_1995541" value="" id="amTagItem_1995541">
+                <em>path to the dir containing the .bam alignment files</em></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">Reference Genome Sequence&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                
+                	
+	           		
+                	  	
+	                	
+		                	
+								<input type="text" size="50" name="amTagItem_1995542" value="" id="amTagItem_1995542">
+                <em>path to the reference genome .fa file </em></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">GTF File&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                
+                	
+	           		
+                	  	
+	                	
+		                	
+								<input type="text" size="50" name="amTagItem_1995543" value="" id="amTagItem_1995543">
+                <em>path to the reference genome .gtf file</em></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">Novel Transcripts&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                <p>
+                  <label>
+                    <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_0" />
+                    Yes</label>
+                  <label>
+                    <input type="radio" name="RadioGroup1" value="0" id="RadioGroup1_1" />
+                    No</label>
+                  <br />
+                </p>
+<label for="radio"></label></td>
+            </tr>
+        
+            <tr>
+           <td valign="top" align="right" class="name">Library Type&nbsp;<span style="color: red;">*</span>:
+                </td>
+                <td valign="top" align="left" class="value">
+               
+                <!-- FIXED -->
+                <label>
+                  <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_2" />
+                  fr-unstranded</label>
+                <label>
+                  <input type="radio" name="RadioGroup1" value="0" id="RadioGroup1_3" />
+                fr-firststrand</label><label>
+                  <input type="radio" name="RadioGroup1" value="0" id="RadioGroup1_3" />
+                fr-secondstrand</label></td>
+            </tr>
+        
+            <tr>
+              <td valign="top" align="right" class="name">Sample Info File&nbsp;<span style="color: red;">*</span>: </td>
+              <td valign="top" align="left" class="value"><!-- FIXED -->
+                <input type="text" size="50" name="amTagItem_3" value="" id="amTagItem_4" />
+                <em>path to a tab delimited text file with two columns (Sample_name and Attributes)</em></td>
+            </tr>
+            <tr>
+              <td valign="top" align="right" class="name">Sample Comparison File&nbsp;<span style="color: red;">*</span>: </td>
+              <td valign="top" align="left" class="value"><!-- FIXED -->
+                <input type="text" size="50" name="amTagItem_3" value="" id="amTagItem_3" />
+                <em>path to a tab delimited text file with two columns (Label1 and Label2)</em></td>
+            </tr>
+    </tbody>
+</table>    
+
+<br>
+<div align="center">
+    <span id="savestudybutton" class="greybutton">Save</span>
+    <span id="cancelstudybutton" class="greybutton buttonicon close">Cancel</span>
+</div>
+</form> 
+  </div>
 </div>
 <div style="margin: 8px;" class="overlay" id="createProgramOverlay">
   <div>
